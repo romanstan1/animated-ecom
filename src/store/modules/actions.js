@@ -1,0 +1,11 @@
+// Action types
+
+export const RECEIVE_POSTS = 'RECEIVE_POSTS'
+export const SUCCESSFUL_UPLOAD = 'SUCCESSFUL_UPLOAD'
+export const FAILED_UPLOAD = 'FAILED_UPLOAD'
+export const DELETE_POST = 'DELETE_POST'
+export const SUCCESSFUL_LOGIN = 'SUCCESSFUL_LOGIN'
+export const SUCCESSFUL_LOGOUT = 'SUCCESSFUL_LOGOUT'
+export const FAILED_LOGIN = 'FAILED_LOGIN'
+
+// Action creators
