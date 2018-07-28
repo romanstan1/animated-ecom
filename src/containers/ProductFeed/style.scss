@@ -1,0 +1,11 @@
+@import "src/global-styles/_variables";
+
+div.product-feed {
+  width: calc(100% - 0px);
+  margin: 0 0px;
+  background: $midgrey;
+  // height: 40px;
+  // position: absolute;
+  // bottom: 10px;
+  height: 50vh;
+}

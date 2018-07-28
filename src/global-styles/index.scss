@@ -14,6 +14,7 @@ html {
   background: white;
   height: 100%;
 }
+
 body {
   background: $backgroundgrey;
   color: $navyblue;
@@ -31,14 +32,17 @@ body {
   text-align: center;
   div#root {
     height: 100%;
+    position: relative;
+    overflow: hidden;
   }
 }
 
 ::selection {
-  background: $hoverblue;
+  background: $brightblue;
   color: white; /* WebKit/Blink Browsers */
 }
+
 ::-moz-selection {
-  background: $hoverblue;
+  background: $brightblue;
   color: white;/* Gecko Browsers */
 }

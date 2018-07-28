@@ -1,8 +1,8 @@
-import React from 'react';
-
+import React, {Fragment} from 'react';
+import ProductFeed from 'containers/ProductFeed'
 const Home = () =>
-  <div className='Home'>
-    Home
-  </div>
+  <Fragment>
+    <ProductFeed/>
+  </Fragment>
 
 export default Home
