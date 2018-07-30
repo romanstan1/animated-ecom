@@ -1,11 +1,19 @@
 @import "src/global-styles/_variables";
 
-div.product-feed {
-  width: calc(100% - 0px);
-  margin: 0 0px;
-  background: $midgrey;
-  // height: 40px;
-  // position: absolute;
-  // bottom: 10px;
-  height: 50vh;
+.drawer {
+  position: absolute;
+  width: 100%;
+  // top: 90vh;
+  div.product-feed {
+    width: calc(100% - 0px);
+    margin: 0 0px;
+    background: $lightgrey;
+    // height: 50vh;
+    div.handle {
+      border-bottom: 2px solid $midgrey;
+      background: $lightgrey;
+      line-height: 35px;
+      height: 35px;
+    }
+  }
 }
