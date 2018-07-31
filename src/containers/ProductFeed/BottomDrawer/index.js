@@ -66,9 +66,10 @@ class BottomDrawer extends Component {
                   onTouchStart={this.handleTouchStart}
                   onTouchEnd={this.handleTouchEnd}
                   className='handle'
-                >
+                />
+                <div className="inner-content">
+                  {children}
                 </div>
-                {children}
               </div>
             </animated.div>
           }

@@ -7,10 +7,18 @@
     width: 100%;
     margin: 0;
     background: $lightgrey;
+    border-top-right-radius: 8px;
+    border-top-left-radius: 8px;
+    overflow: hidden;
+    div.inner-content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - 35px);
+    }
     div.handle {
-      border-top: 1px solid $midgrey;
       border-bottom: 1px solid $midgrey;
-      background: $lightgrey;
+      background: $midgrey;
       line-height: 35px;
       height: 35px;
     }

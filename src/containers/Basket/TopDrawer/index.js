@@ -66,7 +66,9 @@ class TopDrawer extends Component {
                 className='basket-content'
                 style={{height: this.productFeedBottom}}
               >
-                {children}
+                <div className="inner-content">
+                  {children}
+                </div>
                 <div
                   onTouchStart={this.handleTouchStart}
                   onTouchEnd={this.handleTouchEnd}

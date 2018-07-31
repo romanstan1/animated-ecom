@@ -3,20 +3,28 @@
 .top-drawer {
   position: absolute;
   width: 100%;
-    z-index: 10;
+  z-index: 10;
   div.basket-content {
+    overflow: hidden;
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
     width: 100%;
     margin: 0;
     background: $lightgrey;
     position: relative;
     z-index: 10;
+    div.inner-content{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100% - 35px);
+    }
     div.handle {
       position: absolute;
       bottom: 0;
       width: 100%;
       border-top: 1px solid $midgrey;
-      border-bottom: 1px solid $midgrey;
-      background: $lightgrey;
+      background: $midgrey;
       line-height: 35px;
       height: 35px;
     }
