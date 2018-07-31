@@ -1,1 +1,53 @@
 @import "src/global-styles/_variables";
+
+
+div.siema {
+  display: block;
+  margin: 0% 0;
+  height: 100%;
+  > div {
+    // transform: translate(100px, 0);
+    font-size: 0px;
+    // border-left: 15vw solid black;
+    padding: 0 0;
+    display: flex;
+    flex-direction: row;
+    // float:
+    > div {
+      float: none !important;
+      &:last-of-type {
+        opacity: 0;
+        // >div {
+        //   // border-right: 10px solid red;
+        // }
+        // // border-right: 10px solid red;
+        // // width: 125%;
+        // margin-right: 25%;
+      }
+      >div.each-image {
+
+        >div.inside-wrap {
+          transform: translate(50%, 0);
+          background: white;
+          margin: 25px 5px;
+          text-align: left;
+          padding: 10px;
+          padding-bottom: 40px;
+          border-radius: 5px;
+          img {
+            // transform: translate(25%, 0);
+            // margin: 10px;
+            // width: calc(100% - 0px);
+            width: calc(100%);
+          }
+          h3 {
+            font-size: 15px;
+          }
+          p {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+}

@@ -11,9 +11,7 @@
     border-top-left-radius: 8px;
     overflow: hidden;
     div.inner-content{
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      display: block;
       height: calc(100% - 35px);
     }
     div.handle {

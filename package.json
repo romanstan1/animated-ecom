@@ -3,22 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "animejs": "^2.2.0",
-    "d3-ease": "^1.0.3",
     "react": "^16.4.1",
-    "react-anime": "^2.1.0",
     "react-dom": "^16.4.1",
-    "react-motion-ui-pack": "^0.10.3",
-    "react-move": "^2.7.0",
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-router-redux": "5.0.0-alpha.6",
     "react-scripts": "1.1.4",
     "react-spring": "^5.4.4",
-    "react-transition-group": "^2.4.0",
     "react-with-gesture": "^1.0.10",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "siema": "^1.5.1"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",
