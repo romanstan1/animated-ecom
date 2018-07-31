@@ -41,7 +41,7 @@ class TopDrawer extends Component {
   render() {
     const {down, children, y, yDelta, open, bottomDrawer } = this.props
     const { allow, openLegacy } = this.state
-    const offset = openLegacy? this.productFeedBottom - 35 : 0
+    const offset = openLegacy? this.productFeedBottom : 35
 
     // console.log('yDelta', )
     return (
@@ -56,10 +56,10 @@ class TopDrawer extends Component {
             <animated.div
               className="top-drawer"
               style={{
-                bottom:this.screenHeight - 35,
+                bottom:this.screenHeight,
                 // top: this.screenHeight - 35,
                 transform: yval.interpolate(i =>
-                  `translate3d(0px,${ -i < this.productFeedBottom? i : -this.productFeedBottom }px,0)`)
+                  `translate3d(0px,${ i < this.productFeedBottom? i : this.productFeedBottom }px,0)`)
               }}>
               <div
                 ref={this.productFeed}

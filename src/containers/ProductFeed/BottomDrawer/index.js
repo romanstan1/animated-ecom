@@ -40,7 +40,7 @@ class BottomDrawer extends Component {
   render() {
     const {down, children, y, yDelta, open, bottomDrawer } = this.props
     const { allow, openLegacy } = this.state
-    const offset = openLegacy? -this.productFeedTop + 35 : 0
+    const offset = openLegacy? -this.productFeedTop : -35
     return (
       <Fragment>
         <Spring
@@ -53,7 +53,7 @@ class BottomDrawer extends Component {
             <animated.div
               className="bottom-drawer"
               style={{
-                top: this.screenHeight - 35,
+                top: this.screenHeight,
                 transform: yval.interpolate(i =>
                   `translate3d(0px,${ -i < this.productFeedTop? i : -this.productFeedTop }px,0)`)
               }}>
