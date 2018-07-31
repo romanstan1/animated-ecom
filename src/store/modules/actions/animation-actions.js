@@ -4,6 +4,9 @@ export const TOGGLE_BOTTOM_DRAWER = 'TOGGLE_BOTTOM_DRAWER'
 export const OPEN_BOTTOM_DRAWER = 'OPEN_BOTTOM_DRAWER'
 export const CLOSE_BOTTOM_DRAWER = 'CLOSE_BOTTOM_DRAWER'
 
+export const OPEN_TOP_DRAWER = 'OPEN_TOP_DRAWER'
+export const CLOSE_TOP_DRAWER = 'CLOSE_TOP_DRAWER'
+
 // Action creators
 
 export const toggleBottomDrawer = () => {
@@ -21,5 +24,18 @@ export const openBottomDrawer = () => {
 export const closeBottomDrawer = () => {
   return dispatch => dispatch({
     type: CLOSE_BOTTOM_DRAWER
+  })
+}
+
+
+export const openTopDrawer = () => {
+  return dispatch => dispatch({
+    type: OPEN_TOP_DRAWER
+  })
+}
+
+export const closeTopDrawer = () => {
+  return dispatch => dispatch({
+    type: CLOSE_TOP_DRAWER
   })
 }
