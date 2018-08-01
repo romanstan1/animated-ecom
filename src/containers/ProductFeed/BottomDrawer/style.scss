@@ -6,7 +6,7 @@
   div.product-feed {
     width: 100%;
     margin: 0;
-    background: $lightgrey;
+    background: $grey;
     // border-top-right-radius: 8px;
     // border-top-left-radius: 8px;
     overflow: hidden;
@@ -24,7 +24,7 @@
         width: 30px;
         height: 4px;
         border-radius: 5px;
-        background: green;
+        background: $green;
         content: ""
       }
       // border-bottom: 1px solid $midgrey;

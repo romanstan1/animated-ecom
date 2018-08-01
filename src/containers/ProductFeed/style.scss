@@ -20,7 +20,7 @@ div.siema {
           &.focus {
             transform: translate3d(calc(50% + 8px), 0,0) scale(1.2);
           }
-          // box-shadow: 0 10px 10px 0 rgba(0,0,0,0.16), 0 0 0 10px rgba(0,0,0,0.08);
+          box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
           transition: 0.2s ease-in;
           transform: translate3d(calc(50% + 8px), 0,0);
           background: white;

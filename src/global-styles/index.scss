@@ -11,15 +11,15 @@ a {
 }
 
 html {
-  background: white;
+  background: $darkestgrey;
   height: 100%;
   overflow: hidden;
   overscroll-behavior: none;
 }
 
 body {
-  background: $backgroundgrey;
-  color: $navyblue;
+  background: white;
+  color: $black;
   margin: 0;
   padding: 0;
   font-family: "Work Sans", "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
@@ -40,11 +40,11 @@ body {
 }
 
 ::selection {
-  background: $brightblue;
+  background: $green;
   color: white; /* WebKit/Blink Browsers */
 }
 
 ::-moz-selection {
-  background: $brightblue;
+  background: $green;
   color: white;/* Gecko Browsers */
 }

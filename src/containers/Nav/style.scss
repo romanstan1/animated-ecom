@@ -2,15 +2,22 @@
 
 nav {
   height: 50px;
-  background: $darkergrey;
-  // border-bottom: 1px solid $lightgrey;
+  background: $grey;
   position: absolute;
   top: 0;
-  width: 100%;
+  width: calc(100% - 10px);
   z-index: 30;
   display: grid;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: bold;
   align-items: center;
   grid-template-columns: 70px auto 70px;
-  // display: none;
+  margin: 0 5px;
+  div {
+    svg {
+      fill: $black;
+      opacity: 0.9;
+      padding: 1px;
+    }
+  }
 }

@@ -61,6 +61,7 @@ class ProductFeedDrawer extends Component {
         el.classList.add("focus")
         this.props.dispatch(focusOnCard(id))
       }
+      else el.classList.remove("focus")
     })
   }
 

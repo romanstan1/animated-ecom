@@ -2,6 +2,8 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import './style.css'
 
+
+
 class ProductDisplay extends Component {
   state = {
     legacyImg: null
