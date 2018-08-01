@@ -1,0 +1,15 @@
+@import "src/global-styles/_variables";
+
+nav {
+  height: 25px;
+  background: $midgrey;
+  border-bottom: 1px solid $lightgrey;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 30;
+  display: grid;
+  font-size: 13px;
+  align-items: center;
+  grid-template-columns: 70px auto 70px;
+}

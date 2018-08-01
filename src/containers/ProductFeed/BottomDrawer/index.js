@@ -31,7 +31,6 @@ class BottomDrawer extends Component {
   }
 
   setBoundingRect = () => this.rect = ReactDOM.findDOMNode(this.productFeed.current).getBoundingClientRect().top
-
   handleOpen = () => this.props.dispatch(openBottomDrawer())
   handleClose = () => this.props.dispatch(closeBottomDrawer())
   handleTouchStart = () => this.setState((prevState, props) => ({allow: true, openLegacy: props.open}))

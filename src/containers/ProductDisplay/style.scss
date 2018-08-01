@@ -1,0 +1,19 @@
+@import "src/global-styles/_variables";
+
+div.product-display {
+  margin-top: 55px;
+  position: relative;
+  transition: 0.4s ease;
+  padding: 10px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px);
+  &.fadein {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  img {
+    border-radius: 5px;
+    width: 100%;
+  }
+}
