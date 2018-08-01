@@ -8,6 +8,7 @@ export const OPEN_TOP_DRAWER = 'OPEN_TOP_DRAWER'
 export const CLOSE_TOP_DRAWER = 'CLOSE_TOP_DRAWER'
 
 export const FOCUS_ON_CARD = "FOCUS_ON_CARD"
+export const UNFOCUS_CARDS = "UNFOCUS_CARDS"
 
 // Action creators
 
@@ -45,5 +46,10 @@ export const focusOnCard = (id) => {
   return dispatch => dispatch({
     type: FOCUS_ON_CARD,
     payload: id
+  })
+}
+export const unFocusCards = () => {
+  return dispatch => dispatch({
+    type: UNFOCUS_CARDS
   })
 }

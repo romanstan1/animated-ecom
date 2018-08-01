@@ -4,7 +4,8 @@ import {
   CLOSE_BOTTOM_DRAWER,
   OPEN_TOP_DRAWER,
   CLOSE_TOP_DRAWER,
-  FOCUS_ON_CARD
+  FOCUS_ON_CARD,
+  UNFOCUS_CARDS
 } from '../actions/animation-actions'
 
 const initialState = {
@@ -43,6 +44,12 @@ export default (state=initialState, action) => {
       return {
         ...state,
         focusedCard: action.payload
+      }
+    }
+    case UNFOCUS_CARDS: {
+      return {
+        ...state,
+        focusedCard: null
       }
     }
     default: return state

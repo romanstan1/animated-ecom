@@ -4,7 +4,7 @@ import BottomDrawer from './BottomDrawer'
 import './style.css'
 import Siema from './siema';
 import ReactDOM from 'react-dom'
-import {focusOnCard} from 'store/modules/actions/animation-actions'
+import {focusOnCard, unFocusCards} from 'store/modules/actions/animation-actions'
 
 class ProductFeedDrawer extends Component {
   state = {
@@ -35,7 +35,6 @@ class ProductFeedDrawer extends Component {
     this.midPoint = (window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth) / 2
-    
     this.midPoint = this.midPoint < 510 / 2? this.midPoint : 510 / 2
   }
 
@@ -50,6 +49,7 @@ class ProductFeedDrawer extends Component {
     Object.keys(this.refs).forEach(id => {
       const el = ReactDOM.findDOMNode(this.refs[id])
       el.classList.remove("focus")
+      this.props.dispatch(unFocusCards())
     })
   }
 
