@@ -3,14 +3,11 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="theme-color" content="#000000">
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json">
     <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
-        <!-- Required Core stylesheet -->
-    <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.core.min.css"> -->
-
-    <!-- Optional Theme stylesheet -->
-    <!-- <link rel="stylesheet" href="node_modules/@glidejs/glide/dist/css/glide.theme.min.css"> -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="theme-color" content="#080a3c"/>
     <title>Animated Ecom Journey</title>
   </head>
   <body>
@@ -18,5 +15,15 @@
       You need to enable JavaScript to run this app.
     </noscript>
     <div id="root"></div>
+    <script src="https://www.gstatic.com/firebasejs/5.3.0/firebase.js"></script>
+    <script>
+      var config = {
+        apiKey: "AIzaSyAy5WV6e7xiYNn0URo_IzFv8nJ_fEKiNMs",
+        authDomain: "ecom-animation.firebaseapp.com",
+        projectId: "ecom-animation",
+        messagingSenderId: "750675374975"
+      };
+      firebase.initializeApp(config);
+    </script>
   </body>
 </html>
