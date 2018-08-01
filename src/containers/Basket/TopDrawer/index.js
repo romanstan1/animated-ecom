@@ -10,15 +10,25 @@ class TopDrawer extends Component {
   constructor(props) {
     super(props);
     this.productFeed = React.createRef();
-    this.screenHeight = window.innerHeight
-    || document.documentElement.clientHeight
-    || document.body.clientHeight
-    this.productFeedBottom = this.screenHeight
+    this.getScreenHeight()
     this.state = {
       allow: false,
       openLegacy: false
     }
+    window.addEventListener("resize", () => {
+      this.getScreenHeight()
+      this.forceUpdate()
+    }, true);
   }
+
+  getScreenHeight = () => {
+    this.screenHeight = window.innerHeight
+    || document.documentElement.clientHeight
+    || document.body.clientHeight
+
+    this.productFeedBottom = this.screenHeight
+  }
+
   componentDidMount() {
     this.setBoundingRect()
   }

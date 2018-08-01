@@ -11,9 +11,12 @@ class ProductFeedDrawer extends Component {
     assets: (ctx => ctx.keys().map(ctx))(require.context('assets', true, /.*/))
   }
   componentDidMount() {
-    this.midPoint = (window.innerWidth
-    || document.documentElement.clientWidth
-    || document.body.clientWidth) / 2
+    this.getScreenMidPoint()
+
+    window.addEventListener("resize", () => {
+      this.getScreenMidPoint()
+      this.forceUpdate()
+    }, true);
 
     this.siema = new Siema({
       selector: '.siema',
@@ -26,6 +29,12 @@ class ProductFeedDrawer extends Component {
         this.onChange()
       }
     })
+  }
+
+  getScreenMidPoint = () => {
+    this.midPoint = (window.innerWidth
+    || document.documentElement.clientWidth
+    || document.body.clientWidth) / 2
   }
 
   onChange = () => {

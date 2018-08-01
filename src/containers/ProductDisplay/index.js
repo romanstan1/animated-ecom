@@ -18,7 +18,6 @@ class ProductDisplay extends Component {
   render() {
     const {img, title, description, price} = this.props
     const {justUpdated} = this.state
-    console.log('justUpdated', justUpdated)
     return (
       <div className={justUpdated? 'product-display fadein' : 'product-display'}>
         <img src={img} alt=""/>
