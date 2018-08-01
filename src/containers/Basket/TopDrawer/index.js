@@ -37,8 +37,8 @@ class TopDrawer extends Component {
     this.setBoundingRect()
     const { yDelta, open } = this.props
     const {allow, openLegacy } = this.state
-    if(this.rect > 100 && !openLegacy && yDelta > 0) this.handleOpen()
-    else if (this.rect < this.screenHeight - 100 && openLegacy && yDelta < 0) this.handleClose()
+    if(this.rect > 150 && !openLegacy && yDelta > 0) this.handleOpen()
+    else if (this.rect < this.screenHeight - 10 && openLegacy && yDelta < 0) this.handleClose()
   }
 
   setBoundingRect = () => this.rect = ReactDOM.findDOMNode(this.productFeed.current).getBoundingClientRect().bottom
@@ -51,9 +51,7 @@ class TopDrawer extends Component {
   render() {
     const {down, children, y, yDelta, open, bottomDrawer } = this.props
     const { allow, openLegacy } = this.state
-    const offset = openLegacy? this.productFeedBottom : 35
-
-    // console.log('yDelta', )
+    const offset = openLegacy? this.productFeedBottom + 40 : 40
     return (
       <Fragment>
         <Spring
@@ -66,15 +64,14 @@ class TopDrawer extends Component {
             <animated.div
               className="top-drawer"
               style={{
-                bottom:this.screenHeight,
-                // top: this.screenHeight - 35,
+                bottom:this.screenHeight - 40,
                 transform: yval.interpolate(i =>
-                  `translate3d(0px,${ i < this.productFeedBottom? i : this.productFeedBottom }px,0)`)
+                  `translate3d(0px,${ i < this.productFeedBottom + 0? i : this.productFeedBottom + 0 }px,0)`)
               }}>
               <div
                 ref={this.productFeed}
                 className='basket-content'
-                style={{height: this.productFeedBottom}}
+                style={{height: this.productFeedBottom + 40}}
               >
                 <div className="inner-content">
                   {children}

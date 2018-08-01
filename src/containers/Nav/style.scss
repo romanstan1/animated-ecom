@@ -1,9 +1,9 @@
 @import "src/global-styles/_variables";
 
 nav {
-  height: 25px;
-  background: $midgrey;
-  border-bottom: 1px solid $lightgrey;
+  height: 50px;
+  background: $darkergrey;
+  // border-bottom: 1px solid $lightgrey;
   position: absolute;
   top: 0;
   width: 100%;
@@ -12,4 +12,5 @@ nav {
   font-size: 13px;
   align-items: center;
   grid-template-columns: 70px auto 70px;
+  // display: none;
 }
