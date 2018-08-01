@@ -2,7 +2,7 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import BottomDrawer from './BottomDrawer'
 import './style.css'
-import Siema from 'siema';
+import Siema from './siema';
 import ReactDOM from 'react-dom'
 import {focusOnCard} from 'store/modules/actions/animation-actions'
 
@@ -35,6 +35,8 @@ class ProductFeedDrawer extends Component {
     this.midPoint = (window.innerWidth
     || document.documentElement.clientWidth
     || document.body.clientWidth) / 2
+    
+    this.midPoint = this.midPoint < 510 / 2? this.midPoint : 510 / 2
   }
 
   onChange = () => {
@@ -42,6 +44,13 @@ class ProductFeedDrawer extends Component {
     this.timeout = setTimeout(() => {
       this.focusOnCard()
     }, 600)
+  }
+
+  onTouchStart = () => {
+    Object.keys(this.refs).forEach(id => {
+      const el = ReactDOM.findDOMNode(this.refs[id])
+      el.classList.remove("focus")
+    })
   }
 
   focusOnCard = () => {
@@ -52,7 +61,6 @@ class ProductFeedDrawer extends Component {
         el.classList.add("focus")
         this.props.dispatch(focusOnCard(id))
       }
-      else el.classList.remove("focus")
     })
   }
 
@@ -61,7 +69,7 @@ class ProductFeedDrawer extends Component {
     return (
       <Fragment>
         <BottomDrawer>
-          <div className="siema">
+          <div className="siema" onTouchStart={this.onTouchStart} >
             {
               assets.map(url =>
               <div className='each-image' key={url}>

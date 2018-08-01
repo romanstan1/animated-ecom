@@ -12,8 +12,7 @@
     "react-spring": "^5.4.4",
     "react-with-gesture": "^1.0.10",
     "redux": "^4.0.0",
-    "redux-thunk": "^2.3.0",
-    "siema": "^1.5.1"
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "build-css": "node-sass-chokidar src/ -o src/",

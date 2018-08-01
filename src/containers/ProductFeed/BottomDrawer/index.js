@@ -48,7 +48,7 @@ class BottomDrawer extends Component {
   render() {
     const {down, children, y, yDelta, open, bottomDrawer } = this.props
     const { allow, openLegacy } = this.state
-    const offset = openLegacy? -this.productFeedTop : -35
+    const offset = openLegacy? -this.productFeedTop : -40
     return (
       <Fragment>
         <Spring
