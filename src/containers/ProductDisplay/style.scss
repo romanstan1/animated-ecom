@@ -6,6 +6,8 @@ div.product-display {
   transition: 0.2s ease;
   padding: 10px;
   overflow: hidden;
+  text-align: left;
+  height: 100%;
   &.fadein {
     transform: translate3d(0,0,0);
     opacity: 1;
@@ -17,5 +19,26 @@ div.product-display {
   img {
     border-radius: 5px;
     width: 100%;
+  }
+  div.details {
+    position: relative;
+    margin: 100px 30px 50px 30px;
+    // margin-left: 30px;
+    height: 40%;
+
+    div.button {
+      position: absolute;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      bottom: 50px;
+      display: inline-block;
+      background: $green;
+      padding: 10px 20px;
+      min-width: 170px;
+      // word-break:break-all;
+      border-radius: 10px;
+      color: white;
+      text-align: center;
+    }
   }
 }

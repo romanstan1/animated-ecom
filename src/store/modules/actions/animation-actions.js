@@ -45,7 +45,7 @@ export const closeTopDrawer = () => {
 export const focusOnCard = (id) => {
   return dispatch => dispatch({
     type: FOCUS_ON_CARD,
-    payload: id
+    payload: {id, title:'Title', description: 'More text', price: 69}
   })
 }
 export const unFocusCards = () => {

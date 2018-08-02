@@ -15,6 +15,7 @@
     z-index: 10;
     div.inner-content{
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
       height: calc(100% - 30px);
