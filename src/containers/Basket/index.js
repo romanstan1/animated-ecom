@@ -3,8 +3,6 @@ import {connect} from 'react-redux'
 import TopDrawer from './TopDrawer'
 import './style.css'
 
-
-
 const BasketItem = ({item}) =>
   <div className='basket-item'>
     <img src={item.id} alt=""/>
@@ -22,9 +20,9 @@ class Basket extends Component {
     return (
       <Fragment>
         <TopDrawer>
-          <div className="basket">            
+          <div className="basket">
             {
-              basket.map((item)=> <BasketItem key={item.id} item={item}/>)
+              basket.map((item, i)=> <BasketItem key={item.id + i} item={item}/>)
             }
           </div>
         </TopDrawer>
