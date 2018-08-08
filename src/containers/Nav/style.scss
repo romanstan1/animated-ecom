@@ -5,7 +5,7 @@ nav {
   background: $grey;
   position: absolute;
   top: 0;
-  width: calc(100% - 10px);
+  width: calc(100% - 0px);
   z-index: 30;
   display: grid;
   font-size: 14px;
@@ -13,7 +13,8 @@ nav {
   align-items: center;
   // justify-content: center;
   grid-template-columns: 70px auto 70px;
-  margin: 0 5px;
+  margin: 0px;
+  padding: 0 5px;
   div.burger {
     justify-self:center;
     text-align: center;

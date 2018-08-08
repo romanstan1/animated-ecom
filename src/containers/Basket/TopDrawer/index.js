@@ -51,7 +51,7 @@ class TopDrawer extends Component {
   render() {
     const {down, children, y, yDelta, open, bottomDrawer } = this.props
     const { allow, openLegacy } = this.state
-    const offset = openLegacy? this.productFeedBottom + 40 : 40
+    const offset = openLegacy? this.productFeedBottom + 40 : 80
     return (
       <Fragment>
         <Spring
@@ -66,12 +66,12 @@ class TopDrawer extends Component {
               style={{
                 bottom:this.screenHeight - 40,
                 transform: yval.interpolate(i =>
-                  `translate3d(0px,${ i < this.productFeedBottom + 0? i : this.productFeedBottom + 0 }px,0)`)
+                  `translate3d(0px,${ i < this.productFeedBottom? i < 80? 80 : i : this.productFeedBottom + 0 }px,0)`)
               }}>
               <div
                 ref={this.productFeed}
                 className='basket-content'
-                style={{height: this.productFeedBottom + 40}}
+                style={{height: this.productFeedBottom}}
               >
                 <div className="inner-content">
                   {children}
