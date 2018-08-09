@@ -17,12 +17,7 @@ export default class ThreeDModel extends Component {
   }
 
   componentWillReceiveProps() {
-
-    console.log('componentWillReceiveProps here', this.props.show)
     if(this.props.show) {
-
-      console.log('componentWillReceiveProps')
-      // console.log('show:', this.props.show)
       init()
     }
   }

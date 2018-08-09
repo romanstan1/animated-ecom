@@ -8,14 +8,12 @@ var THREE = window.THREE
 let camera, scene, renderer, frameRequest, geometry, material, cube, controls, mesh
 
 function animate() {
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
   render()
   frameRequest = requestAnimationFrame(animate)
 }
 
 function render() {
-  controls.update()
+  // controls.update()
   renderer.render( scene, camera )
 }
 
@@ -87,16 +85,24 @@ export function init() {
   const element = document.getElementById('scene')
   element.appendChild(renderer.domElement)
 
-  // controls = new THREE.OrbitControls( camera, element );
-  // controls.update()
+  controls = new THREE.OrbitControls( camera, element );
+  controls.update()
 
-  geometry = new THREE.BoxGeometry( 2, 2, 2 )
-  material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } )
-  cube = new THREE.Mesh( geometry, material )
+  // geometry = new THREE.BoxGeometry( 2, 2, 2 )
+  // material = new THREE.MeshPhongMaterial( { color: 0x00ff00 } )
+  // cube = new THREE.Mesh( geometry, material )
 
-  controls = new THREE.DeviceOrientationControls( camera )
+  window.addEventListener('deviceorientation', function(e) {
+    if(cube) {
+      cube.rotation.x = e.beta * (Math.PI / 200)
+      cube.rotation.y = e.gamma * (Math.PI / 200)
+      cube.rotation.z = e.alpha * (Math.PI / 200)
+    }
+  })
+
+  // controls = new THREE.DeviceOrientationControls( camera )
   // controls.target.set( 0, -0.2, -0.2 )
-  console.log('controls', controls)
+  // console.log('controls', controls)
   loadModel()
 
   // scene.add( cube )
@@ -112,7 +118,10 @@ function loadModel() {
   // Instantiate a loader
   var loader = new THREE.GLTFLoader()
 	loader.load('DamagedHelmet/glTF/DamagedHelmet.gltf', function ( gltf ) {
-		scene.add( gltf.scene );
+    cube = gltf.scene
+    console.log('gltf', gltf)
+    console.log('cube', cube)
+		scene.add( cube );
 	})
 }
 
