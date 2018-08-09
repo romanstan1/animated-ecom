@@ -13,7 +13,18 @@ class Scene extends Component {
 export default class ThreeDModel extends Component {
 
   componentDidMount() {
-    init()
+    // init()
+  }
+
+  componentWillReceiveProps() {
+
+    console.log('componentWillReceiveProps here', this.props.show)
+    if(this.props.show) {
+
+      console.log('componentWillReceiveProps')
+      // console.log('show:', this.props.show)
+      init()
+    }
   }
 
   componentWillUnmount() {
@@ -21,6 +32,7 @@ export default class ThreeDModel extends Component {
   }
 
   render() {
+    // console.log('show', this.props)
     return <Scene/>
   }
 }
