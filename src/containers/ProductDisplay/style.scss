@@ -1,10 +1,10 @@
 @import "src/global-styles/_variables";
 
 div.product-display {
-  margin-top: 55px;
+  margin-top: 80px;
   position: relative;
   transition: 0.2s ease;
-  padding: 10px;
+  padding: 0 10px;
   overflow: hidden;
   text-align: left;
   height: 100%;
@@ -22,9 +22,9 @@ div.product-display {
   }
   div.details {
     position: relative;
-    margin: 100px 30px 50px 30px;
+    margin: 0px 30px 0px 30px;
     // margin-left: 30px;
-    height: 40%;
+    height: 30%;
 
     div.button {
       transition: 0.2s ease;
@@ -34,7 +34,7 @@ div.product-display {
       position: absolute;
       left: 50%;
       transform: translate(-50%, -50%);
-      bottom: 50px;
+      bottom: 0px;
       display: inline-block;
       background: $green;
       padding: 10px 20px;
@@ -45,4 +45,9 @@ div.product-display {
       text-align: center;
     }
   }
+}
+
+
+div#scene {
+  font-size: 0;
 }

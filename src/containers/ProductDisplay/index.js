@@ -1,6 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import {addToBasket} from 'store/modules/actions/data-actions'
+import ThreeDModel from './ThreeDModel'
 import './style.css'
 
 class ProductDisplay extends Component {
@@ -33,7 +34,8 @@ class ProductDisplay extends Component {
     const {legacyCard, updated} = this.state
     return (
       <div className={!!card? 'product-display fadein' : 'product-display fadeout'}>
-        <img src={legacyCard? legacyCard.id : null} alt=""/>
+        {/* <img src={legacyCard? legacyCard.id : null} alt=""/> */}
+        <ThreeDModel/>
         <div className='details'>
           <h3>{legacyCard? legacyCard.title: null}</h3>
           <p>{legacyCard? legacyCard.description: null}</p>
