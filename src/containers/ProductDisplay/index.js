@@ -32,11 +32,10 @@ class ProductDisplay extends Component {
   render() {
     const {card} = this.props
     const {legacyCard, updated} = this.state
-    // console.log('card!!', card)
     return (
       <div className={!!card? 'product-display fadein' : 'product-display fadeout'}>
         {/* <img src={legacyCard? legacyCard.id : null} alt=""/> */}
-        <ThreeDModel show={card}/>
+        <ThreeDModel card={legacyCard} show={!!card}/>
         <div className='details'>
           <h3>{legacyCard? legacyCard.title: null}</h3>
           <p>{legacyCard? legacyCard.description: null}</p>

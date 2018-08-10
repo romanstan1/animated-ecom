@@ -68,11 +68,23 @@ function loadModel(url) {
   const loader = new THREE.GLTFLoader()
 	loader.load(url, ( gltf ) => {
     cube = gltf.scene
+    cube.name = url
 		scene.add( cube );
 	})
 }
 
-export function init(url) {
+function removeModel(url) {
+  const selectedObject = scene.getObjectByName(url)
+  scene.remove( selectedObject )
+}
+
+
+export function update(url, show) {
+  if(show) loadModel(url)
+  else removeModel(url)
+}
+
+export function init() {
   const canvas = setCanvasSize()
 
   scene = new THREE.Scene()
@@ -99,8 +111,6 @@ export function init(url) {
       cube.rotation.z = e.alpha * (Math.PI / 200)
     }
   })
-
-  loadModel(url)
   animate()
 }
 

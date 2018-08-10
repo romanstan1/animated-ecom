@@ -1,5 +1,5 @@
 import React, {Component, Fragment} from 'react';
-import {init, uninit} from './three-animation'
+import {init, update} from './three-animation'
 
 class Scene extends Component {
   shouldComponentUpdate(nextProps) {
@@ -13,29 +13,22 @@ class Scene extends Component {
 export default class ThreeDModel extends Component {
 
   componentDidMount() {
-    // init()
+    console.log('init')
+    init()
   }
 
-  componentWillReceiveProps() {
-    // console.log('props:', this.props.show)
-    // uninit()
-    // if(this.props.show) {
-    //   init('Duck/glTF/Duck.gltf')
-    //   // 'DamagedHelmet/glTF/DamagedHelmet.gltf'
-    // }
-
-
-    // fadeIn(url)
-
-
+  componentWillReceiveProps(nextProps) {
+    const {card, show} = nextProps
+    // console.log('componentWillReceiveProps show', show)
+    // console.log('componentWillReceiveProps card', card)
+    update(card.url, show)
   }
 
   componentWillUnmount() {
-  //   uninit()
+    console.log('componentWillUnmount')
   }
 
   render() {
-    // console.log('show', this.props)
-    return <Scene/>
+    return <div id='scene'></div>
   }
 }
