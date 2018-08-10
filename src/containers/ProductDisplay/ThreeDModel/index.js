@@ -17,13 +17,21 @@ export default class ThreeDModel extends Component {
   }
 
   componentWillReceiveProps() {
-    if(this.props.show) {
-      init()
-    }
+    // console.log('props:', this.props.show)
+    // uninit()
+    // if(this.props.show) {
+    //   init('Duck/glTF/Duck.gltf')
+    //   // 'DamagedHelmet/glTF/DamagedHelmet.gltf'
+    // }
+
+
+    // fadeIn(url)
+
+
   }
 
   componentWillUnmount() {
-    uninit()
+  //   uninit()
   }
 
   render() {

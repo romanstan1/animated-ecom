@@ -11,7 +11,7 @@ import {
 const initialState = {
   bottomDrawer: false,
   topDrawer: false,
-  focusedCard: null,
+  focusedCard: null
 }
 
 export default (state=initialState, action) => {

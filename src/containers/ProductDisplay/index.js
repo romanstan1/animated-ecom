@@ -32,6 +32,7 @@ class ProductDisplay extends Component {
   render() {
     const {card} = this.props
     const {legacyCard, updated} = this.state
+    // console.log('card!!', card)
     return (
       <div className={!!card? 'product-display fadein' : 'product-display fadeout'}>
         {/* <img src={legacyCard? legacyCard.id : null} alt=""/> */}

@@ -6,6 +6,7 @@ import rootReducer from './modules'
 
 const logger = store => next => action => {
   let result = next(action)
+  // console.log('')
   // console.log('action.type:', action.type)
   // console.log("store: ",store.getState())
   return result

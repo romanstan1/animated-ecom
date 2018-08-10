@@ -5,7 +5,7 @@ import './style.css'
 
 const BasketItem = ({item}) =>
   <div className='basket-item'>
-    <img src={item.id} alt=""/>
+    <img src={item.image} alt=""/>
     <div className='details'>
       <h3>{item.title}</h3>
       <p>{item.description}</p>
@@ -22,7 +22,7 @@ class Basket extends Component {
         <TopDrawer>
           <div className="basket">
             {
-              basket.map((item, i)=> <BasketItem key={item.id + i} item={item}/>)
+              basket.map((item, i)=> <BasketItem key={item.image + i} item={item}/>)
             }
           </div>
         </TopDrawer>

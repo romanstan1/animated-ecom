@@ -7,9 +7,7 @@ import ReactDOM from 'react-dom'
 import {focusOnCard, unFocusCards} from 'store/modules/actions/animation-actions'
 
 class ProductFeedDrawer extends Component {
-  state = {
-    assets: (ctx => ctx.keys().map(ctx))(require.context('assets', true, /.*/))
-  }
+
   componentDidMount() {
     this.getScreenMidPoint()
 
@@ -54,30 +52,31 @@ class ProductFeedDrawer extends Component {
   }
 
   focusOnCard = () => {
-    Object.keys(this.refs).forEach(id => {
-      const el = ReactDOM.findDOMNode(this.refs[id])
+    Object.keys(this.refs).forEach(image => {
+      const el = ReactDOM.findDOMNode(this.refs[image])
       const rect = el.getBoundingClientRect()
       if(this.midPoint > rect.left && this.midPoint < rect.right ) {
         el.classList.add("focus")
-        this.props.dispatch(focusOnCard(id))
+        const card = this.props.products.find(product => product.image === image)
+        this.props.dispatch(focusOnCard(card))
       }
       else el.classList.remove("focus")
     })
   }
 
   render() {
-    const {assets} = this.state
+    const {products} = this.props
     return (
       <Fragment>
         <BottomDrawer>
           <div className="siema" onTouchStart={this.onTouchStart} >
             {
-              assets.map(url =>
-              <div className='each-image' key={url}>
-                <div className='inside-wrap' ref={url}>
-                  <img src={url} alt="product-image"/>
-                  <h3>Title</h3>
-                  <p>More text</p>
+              products.map((product, i) =>
+              <div className='each-image' key={product.image + i}>
+                <div className='inside-wrap' ref={product.image}>
+                  <img src={product.image} alt="product-image"/>
+                  <h3>{ product.title }</h3>
+                  <p> { product.price }</p>
                 </div>
               </div>)
             }
@@ -88,4 +87,6 @@ class ProductFeedDrawer extends Component {
   }
 }
 
-export default connect()(ProductFeedDrawer)
+export default connect(state => ({
+  products: [].concat(state.data.products, {})
+}))(ProductFeedDrawer)
