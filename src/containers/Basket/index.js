@@ -30,7 +30,7 @@ class Basket extends Component {
           <div className="basket">
             <Transition
               keys={basket.map((item, i) => item.image + i)}
-              from={{ height: 'auto', overflow:'hidden' }}
+              from={{ height: 130 }}
               leave={{ height: 0  }}
               >
               {
@@ -38,13 +38,14 @@ class Basket extends Component {
                 <div style={styles}>
                   <Swipeout
                     right={[{
-                      text: ' Delete',
-                      style: { width: '30vw'},
-                      onPress:() => {
-                        this.props.dispatch(deleteBasketItem(item))
-                      },
+                      text: ' Delete ',
+                      style: { width: '100vw'},
+                      onPress:() => {},
                       className: 'swipe-to-delete'
                     }]}
+                    onOpen={() =>
+                      this.props.dispatch(deleteBasketItem(item))
+                    }
                     >
                       <BasketItem item={item}/>
                     </Swipeout>
