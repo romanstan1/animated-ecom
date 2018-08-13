@@ -6,15 +6,23 @@ import Siema from './siema';
 import ReactDOM from 'react-dom'
 import {focusOnCard, unFocusCards} from 'store/modules/actions/animation-actions'
 
-
-
-
 const focused = {
   transform: 'translate3d(calc(50% + 8px), 0,0) scale(1.2)'
 }
 class ProductFeedDrawer extends Component {
 
   componentDidMount() {
+    // window.screen.lockOrientation("portrait-primary");
+    // if ( navigator.userAgent.match( /(android|iphone)/gi ) ) {
+    //
+    //   const lockOrientation = window.screen.orientation.lock || window.screen.lockOrientation || window.screen.mozLockOrientation || window.screen.msLockOrientation;
+    //   lockOrientation("portrait-primary")
+    //   console.log('lockOrientation', lockOrientation)
+    //
+    // }
+    // console.log('locked', window.screen)
+
+
     this.getScreenMidPoint()
 
     window.addEventListener("resize", () => {

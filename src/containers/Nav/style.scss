@@ -34,10 +34,28 @@ nav {
     }
   }
   div {
-    svg {
-      fill: $black;
-      opacity: 0.9;
-      padding: 1px;
+    div.icon {
+      height: 48px;
+      width: 18px;
+      margin: 0 auto;
+      position: relative;
+      transition: 0.2s ease;
+      &.pulse {
+        transform: scale(1.2);
+      }
+      svg {
+        fill: $black;
+        opacity: 0.9;
+        padding: 1px;
+      }
+      span.values {
+        position: absolute;
+        top: 18px;
+        right: 9px;
+        transform: translate(45%);
+        font-size: 11px;
+        color: $green;
+      }
     }
   }
 

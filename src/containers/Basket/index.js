@@ -1,14 +1,11 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import TopDrawer from './TopDrawer'
-// import SwipeToDelete from 'react-swipe-to-delete-component';
 import {deleteBasketItem} from 'store/modules/actions/data-actions'
 import 'rc-swipeout/assets/index.css';
 import Swipeout from 'rc-swipeout';
-
+import { Transition, animated } from 'react-spring'
 import './style.css'
-import { Transition } from 'react-spring'
-
 
 const BasketItem = ({item, styles}) =>
   <div className='basket-item'>
@@ -29,13 +26,14 @@ class Basket extends Component {
         <TopDrawer>
           <div className="basket">
             <Transition
-              keys={basket.map((item, i) => item.image + i)}
+              native
+              keys={basket.map(item => item.uuid)}
               from={{ height: 130 }}
               leave={{ height: 0  }}
               >
               {
                 basket.map((item, i) => styles =>
-                <div style={styles}>
+                <animated.div style={styles}>
                   <Swipeout
                     right={[{
                       text: ' Delete ',
@@ -51,11 +49,9 @@ class Basket extends Component {
                     >
                       <BasketItem item={item}/>
                     </Swipeout>
-                </div>
+                </animated.div>
                 )
               }
-
-
             </Transition>
           </div>
         </TopDrawer>
