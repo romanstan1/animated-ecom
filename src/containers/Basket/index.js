@@ -44,7 +44,9 @@ class Basket extends Component {
                       className: 'swipe-to-delete'
                     }]}
                     onOpen={() =>
-                      this.props.dispatch(deleteBasketItem(item))
+                      setTimeout(() => {
+                        this.props.dispatch(deleteBasketItem(item))
+                      }, 500)
                     }
                     >
                       <BasketItem item={item}/>

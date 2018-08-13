@@ -4,6 +4,10 @@ import Home from 'pages/Home'
 
 export default class App extends Component {
   commponentDidMount() {
+    // console.log('screen', windowscreen)
+    // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+    window.screen.lockOrientation("portrait-primary")
+
     if ('serviceWorker' in navigator) {
       // window.addEventListener('load', () => {
       //   navigator.serviceWorker.register('service-worker.js').then(registration => {
