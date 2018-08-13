@@ -17,9 +17,9 @@ div.siema {
       > div.each-image {
         margin: 25px 14px;
         > div.inside-wrap {
-          &.focus {
-            transform: translate3d(calc(50% + 8px), 0,0) scale(1.2);
-          }
+          // &.focus {
+          //   transform: translate3d(calc(50% + 8px), 0,0) scale(1.2);
+          // }
           box-shadow: 0 10px 20px 0 rgba(0,0,0,0.1);
           transition: 0.2s ease-in;
           transform: translate3d(calc(50% + 8px), 0,0);

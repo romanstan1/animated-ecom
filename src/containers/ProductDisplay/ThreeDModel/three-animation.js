@@ -65,19 +65,37 @@ function createLights() {
 
 
 function loadModel(url) {
-  const loader = new THREE.GLTFLoader()
-	loader.load(url, ( gltf ) => {
+
+  const manager = new THREE.LoadingManager()
+
+  manager.onLoad = () => {
+  	// console.log( 'Loading complete!', url)
+    setTimeout(() => {
+      // console.log( 'onLoad set camera position' )
+      // camera.position.set( 0, 0, 5 )
+    },200)
+  }
+
+  manager.onStart = () => {
+    // console.log('onStart')
+    // camera.position.set( 0, 0, 55 )
+  }
+
+  // console.log('manager', manager)
+
+  const loader = new THREE.GLTFLoader(manager)
+
+  loader.load(url, ( gltf ) => {
     cube = gltf.scene
     cube.name = url
-		scene.add( cube );
-	})
+    scene.add(cube)
+  })
 }
 
 function removeModel(url) {
   const selectedObject = scene.getObjectByName(url)
   scene.remove( selectedObject )
 }
-
 
 export function update(url, show) {
   if(show) loadModel(url)

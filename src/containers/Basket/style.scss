@@ -1,26 +1,45 @@
 @import "src/global-styles/_variables";
 
 div.basket {
-  height: calc(100% - 80px);
+  height: calc(100% - 50px);
   overflow-y: scroll;
   padding: 0 10px;
-  margin: 60px 0px;
+  margin: 20px 0px 60px 0;
+  .swipe-to-delete {
+    background: $green;
+    color:white;
+  }
   div.basket-item {
-    border-bottom: 1px solid $black;
-    padding: 30px 5%;
+    border-bottom: 1px solid $lightgrey;
+    padding: 20px 0%;
+    background: $grey;
+    display: flex;
+    justify-content: space-around;
     img {
-      width: 40%;
+      // -webkit-box-shadow: 7px 5px 26px -4px rgba(0,0,0,0.2);
+      // -moz-box-shadow: 7px 5px 26px -4px rgba(0,0,0,0.2);
+      box-shadow: 5px 5px 26px 1px rgba(0,0,0,0.15);
+      display: inline-block;
+      width: 38%;
+      height: 100%;
+      border-radius: 12px;
     }
     div.details {
-      padding: 0 30px;
+      padding: 5px 0px;
       text-align: left;
-      display: inline-block;
-      width: 50%;
+      width: 47%;
+      display: inline-flex;
+      flex-direction: column;
+      justify-content: space-between;
       h3 {
-        margin: 5px 0;
+        margin: 0px 0;
       }
       p {
-        margin: 4px 0;
+        margin: 0px 0;
+        font-size: 13px;
+        &.price {
+          color: $green;
+        }
       }
     }
   }

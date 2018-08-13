@@ -6,6 +6,12 @@ import Siema from './siema';
 import ReactDOM from 'react-dom'
 import {focusOnCard, unFocusCards} from 'store/modules/actions/animation-actions'
 
+
+
+
+const focused = {
+  transform: 'translate3d(calc(50% + 8px), 0,0) scale(1.2)'
+}
 class ProductFeedDrawer extends Component {
 
   componentDidMount() {
@@ -56,16 +62,14 @@ class ProductFeedDrawer extends Component {
       const el = ReactDOM.findDOMNode(this.refs[image])
       const rect = el.getBoundingClientRect()
       if(this.midPoint > rect.left && this.midPoint < rect.right ) {
-        el.classList.add("focus")
         const card = this.props.products.find(product => product.image === image)
         this.props.dispatch(focusOnCard(card))
       }
-      else el.classList.remove("focus")
     })
   }
 
   render() {
-    const {products} = this.props
+    const {products, focusedCard} = this.props
     return (
       <Fragment>
         <BottomDrawer>
@@ -73,7 +77,11 @@ class ProductFeedDrawer extends Component {
             {
               products.map((product, i) =>
               <div className='each-image' key={product.image + i}>
-                <div className='inside-wrap' ref={product.image}>
+                <div
+                  style={focusedCard? focusedCard.image === product.image? focused: {} : {}}
+                  className='inside-wrap'
+                  ref={product.image}
+                  >
                   <img src={product.image} alt="product-image"/>
                   <h3>{ product.title }</h3>
                   <p> { product.price }</p>
@@ -88,5 +96,6 @@ class ProductFeedDrawer extends Component {
 }
 
 export default connect(state => ({
-  products: [].concat(state.data.products, {})
+  products: [].concat(state.data.products, {image:'fake'}),
+  focusedCard: state.animation.focusedCard
 }))(ProductFeedDrawer)

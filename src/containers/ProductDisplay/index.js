@@ -4,6 +4,16 @@ import {addToBasket} from 'store/modules/actions/data-actions'
 import ThreeDModel from './ThreeDModel'
 import './style.css'
 
+const fadeIn = {
+  transform: 'translate3d(0,0,0)',
+  opacity: 1
+}
+
+const fadeOut = {
+  transform: 'translate3d(0, 20px, 0)',
+  opacity: 0
+}
+
 class ProductDisplay extends Component {
   state = {
     legacyCard: null,
@@ -33,7 +43,9 @@ class ProductDisplay extends Component {
     const {card} = this.props
     const {legacyCard, updated} = this.state
     return (
-      <div className={!!card? 'product-display fadein' : 'product-display fadeout'}>
+      <div
+        className='product-display'
+        style={!!card? fadeIn : fadeOut}>
         {/* <img src={legacyCard? legacyCard.id : null} alt=""/> */}
         <ThreeDModel card={legacyCard} show={!!card}/>
         <div className='details'>

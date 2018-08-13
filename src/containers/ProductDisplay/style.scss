@@ -8,14 +8,14 @@ div.product-display {
   overflow: hidden;
   text-align: left;
   height: 100%;
-  &.fadein {
-    transform: translate3d(0,0,0);
-    opacity: 1;
-  }
-  &.fadeout {
-    opacity: 0;
-    transform: translate3d(0,20px,0);
-  }
+  // &.fadein {
+  //   transform: translate3d(0,0,0);
+  //   opacity: 1;
+  // }
+  // &.fadeout {
+  //   opacity: 0;
+  //   transform: translate3d(0,20px,0);
+  // }
   img {
     border-radius: 5px;
     width: 100%;

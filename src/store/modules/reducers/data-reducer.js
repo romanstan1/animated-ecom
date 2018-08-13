@@ -1,6 +1,7 @@
 
 import {
-  ADD_TO_BASKET
+  ADD_TO_BASKET,
+  DELETE_BASKET_ITEM
 } from '../actions/data-actions'
 
 const initialState = {
@@ -31,6 +32,12 @@ export default (state=initialState, action) => {
       return {
         ...state,
         basket: [...state.basket, action.payload]
+      }
+    }
+    case DELETE_BASKET_ITEM: {
+      return {
+        ...state,
+        basket: state.basket.filter(items => items.uuid !== action.payload.uuid)
       }
     }
     default: return state

@@ -1,15 +1,22 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import TopDrawer from './TopDrawer'
-import './style.css'
+// import SwipeToDelete from 'react-swipe-to-delete-component';
+import {deleteBasketItem} from 'store/modules/actions/data-actions'
+import 'rc-swipeout/assets/index.css';
+import Swipeout from 'rc-swipeout';
 
-const BasketItem = ({item}) =>
+import './style.css'
+import { Transition } from 'react-spring'
+
+
+const BasketItem = ({item, styles}) =>
   <div className='basket-item'>
     <img src={item.image} alt=""/>
     <div className='details'>
       <h3>{item.title}</h3>
-      <p>{item.description}</p>
-      <p>{item.price}</p>
+      <p className='description'>{item.description}</p>
+      <p className='price'>£{item.price}</p>
     </div>
   </div>
 
@@ -21,9 +28,32 @@ class Basket extends Component {
       <Fragment>
         <TopDrawer>
           <div className="basket">
-            {
-              basket.map((item, i)=> <BasketItem key={item.image + i} item={item}/>)
-            }
+            <Transition
+              keys={basket.map((item, i) => item.image + i)}
+              from={{ height: 'auto', overflow:'hidden' }}
+              leave={{ height: 0  }}
+              >
+              {
+                basket.map((item, i) => styles =>
+                <div style={styles}>
+                  <Swipeout
+                    right={[{
+                      text: ' Delete',
+                      style: { width: '30vw'},
+                      onPress:() => {
+                        this.props.dispatch(deleteBasketItem(item))
+                      },
+                      className: 'swipe-to-delete'
+                    }]}
+                    >
+                      <BasketItem item={item}/>
+                    </Swipeout>
+                </div>
+                )
+              }
+
+
+            </Transition>
           </div>
         </TopDrawer>
       </Fragment>
