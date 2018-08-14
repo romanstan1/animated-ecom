@@ -12,19 +12,7 @@ const focused = {
 class ProductFeedDrawer extends Component {
 
   componentDidMount() {
-    // window.screen.lockOrientation("portrait-primary");
-    // if ( navigator.userAgent.match( /(android|iphone)/gi ) ) {
-    //
-    //   const lockOrientation = window.screen.orientation.lock || window.screen.lockOrientation || window.screen.mozLockOrientation || window.screen.msLockOrientation;
-    //   lockOrientation("portrait-primary")
-    //   console.log('lockOrientation', lockOrientation)
-    //
-    // }
-    // console.log('locked', window.screen)
-
-
     this.getScreenMidPoint()
-
     window.addEventListener("resize", () => {
       this.getScreenMidPoint()
       this.forceUpdate()
@@ -92,7 +80,7 @@ class ProductFeedDrawer extends Component {
                   >
                   <img src={product.image} alt="product-image"/>
                   <h3>{ product.title }</h3>
-                  <p> { product.price }</p>
+                  <p> £{ product.price }</p>
                 </div>
               </div>)
             }

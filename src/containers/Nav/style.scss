@@ -39,9 +39,25 @@ nav {
       width: 18px;
       margin: 0 auto;
       position: relative;
-      transition: 0.2s ease;
+      transition: 0.8s ease;
+      &::before {
+        content: '';
+        border-radius: 50%;
+        transition: 0.8s ease;
+        position: absolute;
+        top: 50%;
+        height: 20px;
+        width: 20px;
+        left: 48%;
+        transform: translate(-50%, -50%);
+        background: $green;
+        opacity: 0;
+      }
       &.pulse {
-        transform: scale(1.2);
+        &::before {
+          transform: translate(-50%, -50%) scale(1.9);
+          opacity: 0.7;
+        }
       }
       svg {
         fill: $black;
@@ -54,7 +70,8 @@ nav {
         right: 9px;
         transform: translate(45%);
         font-size: 11px;
-        color: $green;
+        font-weight: 400;
+        // color: $green;
       }
     }
   }

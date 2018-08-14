@@ -39,7 +39,9 @@ class Nav extends Component {
                 </g>
               </g>
             </svg>
-            <span className='values'>{basket.length}</span>
+            <span className='values'>
+              { basket.length? basket.length : '' }
+            </span>
           </div>
         </div>
       </nav>

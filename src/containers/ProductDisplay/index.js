@@ -29,7 +29,7 @@ class ProductDisplay extends Component {
     clearTimeout(this.timeout)
     this.timeout = setTimeout(() => {
       this.setState(() => ({updated: false}))
-    }, 1800)
+    }, 1200)
   }
 
   componentWillUnmount() {
