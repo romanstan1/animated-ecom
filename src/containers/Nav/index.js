@@ -1,15 +1,26 @@
 import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import ReactDOM from 'react-dom'
+import {openTopDrawer, closeTopDrawer} from 'store/modules/actions/animation-actions'
+
 import './style.css'
 
 class Nav extends Component {
   componentWillReceiveProps(nextProps) {
-    const el = ReactDOM.findDOMNode(this.refs.icon)
-    el.classList.add("pulse")
-    setTimeout(() => {
-      el.classList.remove("pulse")
-    }, 1000)
+    if(this.props.basket !== nextProps.basket) {
+      const el = ReactDOM.findDOMNode(this.refs.icon)
+      el.classList.add("pulse")
+      setTimeout(() => {
+        el.classList.remove("pulse")
+      }, 1000)
+    }
+  }
+
+  toggleDrawer = () => {
+    const {open, dispatch} = this.props
+    if(!open) dispatch(openTopDrawer(false))
+    else dispatch(closeTopDrawer(false))
+
   }
 
   render() {
@@ -22,7 +33,7 @@ class Nav extends Component {
         </div>
         <div>Animation Demo</div>
         <div>
-          <div className='icon' ref='icon'>
+          <div onClick={this.toggleDrawer} className='icon' ref='icon'>
             <svg x="0px" y="0px"
               width="18px" height="48px" viewBox="0 0 18 48">
               <g>
@@ -50,5 +61,6 @@ class Nav extends Component {
 }
 
 export default connect(state => ({
-  basket: state.data.basket
+  basket: state.data.basket,
+  open: state.animation.topDrawer
 }))(Nav)

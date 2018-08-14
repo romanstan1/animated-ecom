@@ -10,13 +10,9 @@ export const CLOSE_TOP_DRAWER = 'CLOSE_TOP_DRAWER'
 export const FOCUS_ON_CARD = "FOCUS_ON_CARD"
 export const UNFOCUS_CARDS = "UNFOCUS_CARDS"
 
-// Action creators
+// Action creators - - - - - - - -
 
-export const toggleBottomDrawer = () => {
-  return dispatch => dispatch({
-    type: TOGGLE_BOTTOM_DRAWER
-  })
-}
+// Bottom Drawer
 
 export const openBottomDrawer = () => {
   return dispatch => dispatch({
@@ -30,6 +26,8 @@ export const closeBottomDrawer = () => {
   })
 }
 
+// Top Drawer
+
 export const openTopDrawer = () => {
   return dispatch => dispatch({
     type: OPEN_TOP_DRAWER
@@ -41,6 +39,8 @@ export const closeTopDrawer = () => {
     type: CLOSE_TOP_DRAWER
   })
 }
+
+// Card focus
 
 export const focusOnCard = (card) => {
   return dispatch => dispatch({

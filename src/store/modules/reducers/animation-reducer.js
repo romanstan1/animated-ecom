@@ -11,6 +11,7 @@ import {
 const initialState = {
   bottomDrawer: false,
   topDrawer: false,
+  topDrawerDragged: false,
   focusedCard: null
 }
 
@@ -32,12 +33,14 @@ export default (state=initialState, action) => {
       return {
         ...state,
         topDrawer: true
+        // topDrawerDragged: action.payload
       }
     }
     case CLOSE_TOP_DRAWER: {
       return {
         ...state,
-        topDrawer: false
+        topDrawer: false,
+        // topDrawerDragged: action.payload
       }
     }
     case FOCUS_ON_CARD: {

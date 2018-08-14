@@ -25,7 +25,6 @@ class TopDrawer extends Component {
     this.screenHeight = window.innerHeight
     || document.documentElement.clientHeight
     || document.body.clientHeight
-
     this.productFeedBottom = this.screenHeight
   }
 
@@ -37,19 +36,33 @@ class TopDrawer extends Component {
     this.setBoundingRect()
     const { yDelta, open } = this.props
     const {allow, openLegacy } = this.state
-    if(this.rect > 150 && !openLegacy && yDelta > 0) this.handleOpen()
-    else if (this.rect < this.screenHeight - 10 && openLegacy && yDelta < 0) this.handleClose()
+    if(this.rect > 150 && !openLegacy && yDelta > 0 && this.dragging) this.handleOpen()
+    else if (this.rect < this.screenHeight - 10 && openLegacy && yDelta < 0 && this.dragging) this.handleClose()
   }
 
   setBoundingRect = () => this.rect = ReactDOM.findDOMNode(this.productFeed.current).getBoundingClientRect().bottom
 
   handleOpen = () => this.props.dispatch(openTopDrawer())
   handleClose = () => this.props.dispatch(closeTopDrawer())
-  handleTouchStart = () => this.setState((prevState, props) => ({allow: true, openLegacy: props.open}))
-  handleTouchEnd = () => this.setState((prevState, props) => ({allow: false, openLegacy: props.open}))
+  handleTouchStart = () => {
+    this.dragging = true
+    this.setState((prevState, props) => ({allow: true, openLegacy: props.open}))
+  }
+  handleTouchEnd = () => {
+    this.dragging = false
+    this.setState((prevState, props) => ({allow: false, openLegacy: props.open}))
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if(!this.props.down && !nextProps.down ) {
+      if(!this.state.openLegacy === nextProps.open) {
+        this.setState({openLegacy: nextProps.open})
+      }
+    }
+  }
 
   render() {
-    const {down, children, y, yDelta, open, bottomDrawer } = this.props
+    const { down, children, y, yDelta, open, bottomDrawer, topDrawerDragged } = this.props
     const { allow, openLegacy } = this.state
     const offset = openLegacy? this.productFeedBottom + 40 : 80
     return (
@@ -92,4 +105,5 @@ class TopDrawer extends Component {
 
 export default connect(state => ({
   open: state.animation.topDrawer
+  // topDrawerDragged: state.animation.topDrawerDragged
 }))(withGesture(TopDrawer))
