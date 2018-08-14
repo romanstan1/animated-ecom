@@ -1,10 +1,12 @@
 @import "src/global-styles/_variables";
 
 div.basket {
-  height: calc(100% - 0px);
+  height: calc(100% - 140px);
   overflow-y: scroll;
   padding: 0 0px;
-  margin: 20px 0px 60px 0;
+  margin: 0px 0px 0px 0;
+  position: relative;
+  // background: red;
   .swipe-to-delete {
     background: $green;
     color:white;
@@ -49,5 +51,54 @@ div.basket {
         }
       }
     }
+  }
+}
+
+div.checkout-tab {
+  border-top: 2px solid $lightgrey;
+  opacity: 1;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  height: 100px;
+  margin-bottom: 80px;
+  div.total {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 20px;
+    span {
+      display: inline-block;
+    }
+    :first-child {
+      :first-child {
+        font-weight: 500;
+        padding-right: 10px;
+      }
+      :last-child {
+        font-size: 12px;
+        transform: translate(0, -1px);
+        font-weight: 400;
+        color: inherit;
+      }
+    }
+    :last-child {
+      font-weight: 500;
+      color: $green;
+    }
+  }
+  div.button {
+    transition: 0.2s ease;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -35%);
+    bottom: 0px;
+    display: inline-block;
+    background: $green;
+    padding: 10px 20px;
+    min-width: 220px;
+    border-radius: 10px;
+    color: white;
+    text-align: center;
   }
 }

@@ -17,10 +17,27 @@ const BasketItem = ({item, styles}) =>
     </div>
   </div>
 
+const CheckoutTab = ({total}) =>
+  <div className="checkout-tab">
+
+    <div className='total'>
+      <div>
+        <span>Total:</span>
+        <span>(excluding delivery)</span>
+      </div>
+      <div>£{total}</div>
+    </div>
+
+    <div className='button'>
+      Checkout
+    </div>
+  </div>
+
 class Basket extends Component {
 
   render() {
     const {basket} = this.props
+    const total = basket.reduce((acc, item) => acc + item.price, 0)
     return (
       <Fragment>
         <TopDrawer>
@@ -54,6 +71,7 @@ class Basket extends Component {
               }
             </Transition>
           </div>
+          <CheckoutTab total={total}/>
         </TopDrawer>
       </Fragment>
     )

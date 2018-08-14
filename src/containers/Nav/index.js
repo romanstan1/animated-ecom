@@ -2,7 +2,6 @@ import React, {Component, Fragment} from 'react';
 import {connect} from 'react-redux'
 import ReactDOM from 'react-dom'
 import {openTopDrawer, closeTopDrawer} from 'store/modules/actions/animation-actions'
-
 import './style.css'
 
 class Nav extends Component {
@@ -18,9 +17,8 @@ class Nav extends Component {
 
   toggleDrawer = () => {
     const {open, dispatch} = this.props
-    if(!open) dispatch(openTopDrawer(false))
-    else dispatch(closeTopDrawer(false))
-
+    if(!open) dispatch(openTopDrawer())
+    else dispatch(closeTopDrawer())
   }
 
   render() {

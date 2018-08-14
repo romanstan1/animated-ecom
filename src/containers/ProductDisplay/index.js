@@ -46,7 +46,6 @@ class ProductDisplay extends Component {
       <div
         className='product-display'
         style={!!card? fadeIn : fadeOut}>
-        {/* <img src={legacyCard? legacyCard.id : null} alt=""/> */}
         <ThreeDModel card={legacyCard} show={!!card}/>
         <div className='details'>
           <h3>{legacyCard? legacyCard.title: null}</h3>

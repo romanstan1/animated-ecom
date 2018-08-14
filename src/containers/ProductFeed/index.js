@@ -46,6 +46,7 @@ class ProductFeedDrawer extends Component {
   }
 
   onTouchStart = () => {
+    console.log('onTouchStart')
     Object.keys(this.refs).forEach(id => {
       const el = ReactDOM.findDOMNode(this.refs[id])
       el.classList.remove("focus")
@@ -79,8 +80,8 @@ class ProductFeedDrawer extends Component {
                   ref={product.image}
                   >
                   <img src={product.image} alt="product-image"/>
-                  <h3>{ product.title }</h3>
-                  <p> £{ product.price }</p>
+                  <h3> { product.title } </h3>
+                  <p> £{ product.price } </p>
                 </div>
               </div>)
             }
