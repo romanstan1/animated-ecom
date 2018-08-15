@@ -24,10 +24,10 @@ class ProductFeedDrawer extends Component {
       startIndex: 0,
       draggable: true,
       multipleDrag: true,
-      duration: 200,
-      onChange: (e) => {
-        this.onChange()
-      }
+      duration: 200
+      // onChange: (e) => {
+      //   this.onChange()
+      // }
     })
   }
 
@@ -46,12 +46,16 @@ class ProductFeedDrawer extends Component {
   }
 
   onTouchStart = () => {
-    console.log('onTouchStart')
     Object.keys(this.refs).forEach(id => {
       const el = ReactDOM.findDOMNode(this.refs[id])
       el.classList.remove("focus")
       this.props.dispatch(unFocusCards())
     })
+  }
+
+  onTouchEnd = () => {
+    console.log('onTouchEnd')
+    this.onChange()
   }
 
   focusOnCard = () => {
@@ -70,7 +74,7 @@ class ProductFeedDrawer extends Component {
     return (
       <Fragment>
         <BottomDrawer>
-          <div className="siema" onTouchStart={this.onTouchStart} >
+          <div className="siema" onTouchStart={this.onTouchStart} onTouchEnd={this.onTouchEnd}>
             {
               products.map((product, i) =>
               <div className='each-image' key={product.image + i}>

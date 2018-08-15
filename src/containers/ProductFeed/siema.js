@@ -460,7 +460,7 @@ export default class Siema {
    * touchend event handler
    */
   touchendHandler(e) {
-    e.stopPropagation();
+    // e.stopPropagation();
     this.pointerDown = false;
     this.enableTransition();
     if (this.drag.endX) {
