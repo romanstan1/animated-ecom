@@ -50,9 +50,26 @@ class Basket extends Component {
     ]
     const details = {
       total: {
-        label: 'Total',
+        label: 'TOTAL',
         amount: {currency: 'GBP', value: this.state.total}
-      }
+      },
+      displayItems: this.props.basket.map(item => ({
+        label: item.brand,
+        amount: {
+          currency: 'GBP',
+          value: item.price,
+        },
+      })),
+      shippingOptions: [
+        {
+          id: 'economy',
+          label: 'Economy Shipping (5-7 Days)',
+          amount: {
+            currency: 'GBP',
+            value: 4.95,
+          },
+        },
+      ],
     }
     new window.PaymentRequest(paymentMethods, details)
       .show()
