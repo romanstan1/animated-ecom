@@ -19,7 +19,7 @@ const BasketItem = ({item, styles}) =>
     </div>
   </div>
 
-const CheckoutTab = ({total}) =>
+const CheckoutTab = ({total, handlePayment}) =>
   <div className="checkout-tab">
     <div className='total'>
       <div>
@@ -28,16 +28,45 @@ const CheckoutTab = ({total}) =>
       </div>
       <div>£{total}</div>
     </div>
-    <div className='button'>
+    <div className='button' onClick={handlePayment}>
       Checkout
     </div>
   </div>
 
 class Basket extends Component {
 
+  state = {
+    total: 0
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const total = nextProps.basket.reduce((acc, item) => acc + item.price, 0)
+    this.setState((prevState, props) => ({total}))
+  }
+
+  handlePayment = () => {
+    const paymentMethods = [
+      {supportedMethods: ['basic-card']}
+    ]
+    const details = {
+      total: {
+        label: 'Total',
+        amount: {currency: 'GBP', value: this.state.total}
+      }
+    }
+    new window.PaymentRequest(paymentMethods, details)
+      .show()
+      .then(uiResult => {
+        // processPayment(uiResult);
+      })
+      .catch(error => {
+        // handlePaymentError(error);
+      });
+  }
+
   render() {
     const {basket} = this.props
-    const total = basket.reduce((acc, item) => acc + item.price, 0)
+    const {total} = this.state
     return (
       <Fragment>
         <TopDrawer>
@@ -71,7 +100,7 @@ class Basket extends Component {
               }
             </Transition>
           </div>
-          <CheckoutTab total={total}/>
+          <CheckoutTab total={total} handlePayment={this.handlePayment}/>
         </TopDrawer>
       </Fragment>
     )

@@ -13,6 +13,9 @@ div.basket {
   .rc-swipeout, .rc-swipeout-content {
     height: 100%;
   }
+  .rc-swipeout-btn {
+    justify-content: flex-end;
+  }
   div.basket-item {
     border-bottom: 1px solid $lightgrey;
     padding: 20px 10px;
