@@ -38,6 +38,7 @@ class ProductDisplay extends Component {
 
   handleClick = () => {
     this.props.dispatch(addToBasket(this.state.legacyCard))
+    window.navigator.vibrate([200]);
   }
   render() {
     const {card} = this.props

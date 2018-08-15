@@ -16,7 +16,6 @@ const BasketItem = ({item, styles}) =>
       {item.title}
       <span className='price'>£{item.price}</span>
     </h3>
-    {/* <p className='description'>{item.description}</p> */}
     </div>
   </div>
 
