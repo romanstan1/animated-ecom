@@ -19,7 +19,6 @@ const BasketItem = ({item, styles}) =>
 
 const CheckoutTab = ({total}) =>
   <div className="checkout-tab">
-
     <div className='total'>
       <div>
         <span>Total:</span>
@@ -27,7 +26,6 @@ const CheckoutTab = ({total}) =>
       </div>
       <div>£{total}</div>
     </div>
-
     <div className='button'>
       Checkout
     </div>

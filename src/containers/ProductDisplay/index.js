@@ -48,9 +48,13 @@ class ProductDisplay extends Component {
         style={!!card? fadeIn : fadeOut}>
         <ThreeDModel card={legacyCard} show={!!card}/>
         <div className='details'>
-          <h3>{legacyCard? legacyCard.title: null}</h3>
-          <p>{legacyCard? legacyCard.description: null}</p>
-          <p>{legacyCard? "£" + legacyCard.price : null}</p>
+          <h3 className='brand'>{legacyCard? legacyCard.brand: null}</h3>
+          <h3 className='title'>{legacyCard? legacyCard.title: null}</h3>
+          <p className='description'>
+            {legacyCard? legacyCard.description: null}
+          </p>
+          <span className='fade-overlay'/>
+          <p className='price'>{legacyCard? "£" + legacyCard.price : null}</p>
 
           <div className={updated? "button updated" : "button"} onClick={this.handleClick}>
             {updated? "Successfully added!" : "Add to basket"}

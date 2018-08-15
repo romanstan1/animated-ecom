@@ -27,8 +27,8 @@ function getScreenDimensions() {
 
 function setCanvasSize() {
   const screen = getScreenDimensions()
-  const width = screen.width - 20
-  const height = (screen.height / 2) - 80
+  const width = screen.width
+  const height = (screen.height - 120) * 0.6
   return {width, height}
 }
 
