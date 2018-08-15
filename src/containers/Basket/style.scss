@@ -6,7 +6,6 @@ div.basket {
   padding: 0 0px;
   margin: 0px 0px 0px 0;
   position: relative;
-  // background: red;
   .swipe-to-delete {
     background: $green;
     color:white;
@@ -32,22 +31,31 @@ div.basket {
       margin: 5px 0;
     }
     div.details {
-      padding: 8px 0px;
+      padding: 18px 0px;
       text-align: left;
       width: 47%;
       display: inline-flex;
       flex-direction: column;
       justify-content: space-between;
       h3 {
-        margin: 0px 0;
-      }
-      p {
-        margin: 0px 0;
-        font-size: 13px;
-        &.price {
-          color: $green;
-          font-size: 15px;
-          font-weight: 600;
+        margin: 0;
+        &.brand {
+          margin-bottom: 0px;
+        }
+        &.title {
+          margin: 0px 0;
+          font-weight: 400;
+          text-transform: uppercase;
+          span {
+            float: right;
+            margin: 1px 0;
+            font-size: 16px;
+            &.price {
+              color: $green;
+              // font-size: 15px;
+              font-weight: 400;
+            }
+          }
         }
       }
     }

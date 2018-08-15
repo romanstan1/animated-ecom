@@ -11,9 +11,12 @@ const BasketItem = ({item, styles}) =>
   <div className='basket-item'>
     <img src={item.image} alt=""/>
     <div className='details'>
-      <h3>{item.title}</h3>
-      <p className='description'>{item.description}</p>
-      <p className='price'>£{item.price}</p>
+    <h3 className='brand'>{item.brand}</h3>
+    <h3 className='title'>
+      {item.title}
+      <span className='price'>£{item.price}</span>
+    </h3>
+    {/* <p className='description'>{item.description}</p> */}
     </div>
   </div>
 

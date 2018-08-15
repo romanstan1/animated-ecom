@@ -28,11 +28,10 @@ div.product-display {
       margin: 0;
       &.brand {
         font-size: 15;
-        margin-bottom: 5px;
-        // font-weight: 400;
+        margin-bottom: 0px;
       }
       &.title {
-        margin: 10px 0;
+        margin: 9px 0;
         font-size: 15;
         font-weight: 400;
         text-transform: uppercase;
@@ -40,10 +39,9 @@ div.product-display {
     }
 
     p.description {
-      margin: 10px 0;
-      height: 70px;
+      margin: 9px 0;
+      height: 72px;
       overflow-y: scroll;
-      // background: green;
       position: relative;
     }
     span.fade-overlay{
