@@ -81,14 +81,20 @@ function loadModel(url) {
     // camera.position.set( 0, 0, 55 )
   }
 
-  // console.log('manager', manager)
-
   const loader = new THREE.GLTFLoader(manager)
 
   loader.load(url, ( gltf ) => {
     cube = gltf.scene
     cube.name = url
     scene.add(cube)
+
+    console.log('cube', cube)
+
+    cube.rotation.y = -1.6
+    cube.rotation.z = -0.2
+    cube.rotation.x = 0.3
+
+    cube.position.y = -0.5
   })
 }
 
