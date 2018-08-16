@@ -64,21 +64,57 @@ function createLights() {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+let snapshot = false
+let betaChange, gammaChange, alphaChange
+
+
+function deviceOrientation(e) {
+  if(cube) {
+
+    if(snapshot) {
+      betaChange = e.beta  * (Math.PI / 200)
+      gammaChange = e.gamma * (Math.PI / 200)
+      alphaChange = e.alpha * (Math.PI / 200)
+      snapshot = false
+    }
+
+    cube.rotation.x =  (e.beta  * (Math.PI / 400)) - betaChange  + 0.3
+    cube.rotation.y =  (e.gamma * (Math.PI / 200)) - gammaChange - 1.6
+    // cube.rotation.z =  (e.alpha * (Math.PI / 200)) - alphaChange - 0.2
+    cube.rotation.z =  -0.2
+
+    console.log('cube', cube.rotation.x, cube.rotation.y, cube.rotation.z )
+
+
+  }
+}
+
+
+
 function loadModel(url) {
+
+  snapshot = true
+  betaChange, gammaChange, alphaChange
 
   const manager = new THREE.LoadingManager()
 
   manager.onLoad = () => {
-  	// console.log( 'Loading complete!', url)
-    setTimeout(() => {
-      // console.log( 'onLoad set camera position' )
-      // camera.position.set( 0, 0, 5 )
-    },200)
-  }
 
-  manager.onStart = () => {
-    // console.log('onStart')
-    // camera.position.set( 0, 0, 55 )
+    window.addEventListener('deviceorientation', deviceOrientation)
+    // setTimeout(() => {
+    //   // console.log( 'onLoad set camera position' )
+    //   // camera.position.set( 0, 0, 5 )
+    // },200)
   }
 
   const loader = new THREE.GLTFLoader(manager)
@@ -88,19 +124,24 @@ function loadModel(url) {
     cube.name = url
     scene.add(cube)
 
-    console.log('cube', cube)
+    // console.log('cube', cube)
 
-    cube.rotation.y = -1.6
-    cube.rotation.z = -0.2
-    cube.rotation.x = 0.3
-
+    // cube.rotation.y = -1.6
+    // cube.rotation.z = -0.2
+    // cube.rotation.x = 0.3
+    //
     cube.position.y = -0.5
   })
 }
 
+
+
+
 function removeModel(url) {
   const selectedObject = scene.getObjectByName(url)
   scene.remove( selectedObject )
+
+  window.removeEventListener('deviceorientation', deviceOrientation)
 }
 
 export function update(url, show) {
@@ -128,13 +169,18 @@ export function init() {
   controls = new THREE.OrbitControls( camera, element );
   controls.update()
 
-  window.addEventListener('deviceorientation', (e) => {
-    if(cube) {
-      cube.rotation.x = e.beta  * (Math.PI / 200)
-      cube.rotation.y = e.gamma * (Math.PI / 200)
-      cube.rotation.z = e.alpha * (Math.PI / 200)
-    }
-  })
+  // window.addEventListener('deviceorientation', (e) => {
+  //   if(cube) {
+  //     console.log('beta', e.beta)
+  //     console.log('gamma', e.gamma)
+  //     console.log('alpha', e.alpha)
+  //     console.log(' ')
+  //
+  //     cube.rotation.x = e.beta  * (Math.PI / 200)
+  //     cube.rotation.y = e.gamma * (Math.PI / 200)
+  //     cube.rotation.z = e.alpha * (Math.PI / 200)
+  //   }
+  // })
   animate()
 }
 
