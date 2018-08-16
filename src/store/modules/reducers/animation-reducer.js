@@ -9,7 +9,7 @@ import {
 } from '../actions/animation-actions'
 
 const initialState = {
-  bottomDrawer: false,
+  bottomDrawer: true,
   topDrawer: false,
   topDrawerDragged: false,
   focusedCard: null

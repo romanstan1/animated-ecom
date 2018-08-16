@@ -29,6 +29,10 @@ class ProductFeedDrawer extends Component {
       //   this.onChange()
       // }
     })
+
+    setTimeout(()=> {
+      this.focusOnCard()
+    }, 1000)
   }
 
   getScreenMidPoint = () => {

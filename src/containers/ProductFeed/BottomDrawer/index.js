@@ -13,7 +13,7 @@ class BottomDrawer extends Component {
     this.getScreenHeight()
     this.state = {
       allow: false,
-      openLegacy: false
+      openLegacy: true
     }
     window.addEventListener("resize", () => {
       this.getScreenHeight()
