@@ -48,13 +48,14 @@ class Basket extends Component {
     const paymentMethods = [
       {supportedMethods: ['basic-card']}
     ]
+
     const details = {
       total: {
         label: 'TOTAL',
         amount: {currency: 'GBP', value: this.state.total}
       },
       displayItems: this.props.basket.map(item => ({
-        label: item.brand,
+        label: item.brand + ' - ' + item.title,
         amount: {
           currency: 'GBP',
           value: item.price,
@@ -63,22 +64,42 @@ class Basket extends Component {
       shippingOptions: [
         {
           id: 'economy',
-          label: 'Economy Shipping (5-7 Days)',
+          label: 'Free Delivery (3-5 Days)',
+          selected: true,
           amount: {
             currency: 'GBP',
-            value: 4.95,
+            value: 0,
           },
         },
+        {
+          id: 'next',
+          label: 'Next Day Delivery',
+            // selected: true,
+          amount: {
+            currency: 'GBP',
+            value: 7.95,
+          },
+        }
       ],
     }
-    new window.PaymentRequest(paymentMethods, details)
-      .show()
-      .then(uiResult => {
-        // processPayment(uiResult);
-      })
-      .catch(error => {
-        // handlePaymentError(error);
-      });
+
+    const options = {
+      requestShipping: true
+    }
+
+    const paymentRequest = new window.PaymentRequest(paymentMethods, details, options)
+
+    paymentRequest.show().then(uiResult => {}).catch(error => {});
+
+    paymentRequest.addEventListener('shippingoptionchange', (event) => {
+      const req = event.target;
+      console.log('Shipping option', req);
+      if(req.shippingOption === 'economy') {
+        // this.setState((prevState, props) => ({total: prevState.total + 3.95}))
+      } else {
+        // this.setState((prevState, props) => ({total: prevState.total + 7.95}))
+      }
+    });
   }
 
   render() {

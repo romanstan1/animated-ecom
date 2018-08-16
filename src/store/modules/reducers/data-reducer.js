@@ -91,27 +91,27 @@ const productData = [
 
 const initialState = {
   basket: [],
-  // products: productData
-  products: [
-    {
-      sku: 1234,
-      brand: 'Duck',
-      title: 'Mallard',
-      description: 'Duck description here',
-      price: 69,
-      url: 'Duck/glTF/Duck.gltf',
-      image: 'Duck/duck.jpg'
-    },
-    {
-      sku: 2345,
-      brand: 'Helmet',
-      title: 'Razor',
-      description: 'Helmet description here',
-      price: 59,
-      url: 'DamagedHelmet/glTF/DamagedHelmet.gltf',
-      image: 'DamagedHelmet/helmet.jpg'
-    }
-  ]
+  products: productData
+  // products: [
+  //   {
+  //     sku: 1234,
+  //     brand: 'Duck',
+  //     title: 'Mallard',
+  //     description: 'Duck description here',
+  //     price: 69,
+  //     url: 'Duck/glTF/Duck.gltf',
+  //     image: 'Duck/duck.jpg'
+  //   },
+  //   {
+  //     sku: 2345,
+  //     brand: 'Helmet',
+  //     title: 'Razor',
+  //     description: 'Helmet description here',
+  //     price: 59,
+  //     url: 'DamagedHelmet/glTF/DamagedHelmet.gltf',
+  //     image: 'DamagedHelmet/helmet.jpg'
+  //   }
+  // ]
 }
 
 export default (state=initialState, action) => {
