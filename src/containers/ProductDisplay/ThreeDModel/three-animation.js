@@ -59,24 +59,12 @@ function createLights() {
   scene.add( spotLight );
 
   var spotLightHelper = new THREE.SpotLightHelper( spotLight );
-  scene.add( spotLightHelper );
-
+  // scene.add( spotLightHelper );
 }
-
-
-
-
-
-
-
-
-
-
 
 
 let snapshot = false
 let betaChange, gammaChange, alphaChange
-
 
 function deviceOrientation(e) {
   if(cube) {
@@ -92,24 +80,14 @@ function deviceOrientation(e) {
     cube.rotation.y =  (e.gamma * (Math.PI / 200)) - gammaChange - 1.6
     // cube.rotation.z =  (e.alpha * (Math.PI / 200)) - alphaChange - 0.2
     cube.rotation.z =  -0.2
-
-    // console.log('cube', cube.rotation.x, cube.rotation.y, cube.rotation.z )
-
-
   }
 }
 
-
-
 function loadModel(url) {
-
   snapshot = true
   betaChange, gammaChange, alphaChange
-
   const manager = new THREE.LoadingManager()
-
   manager.onLoad = () => {
-
     window.addEventListener('deviceorientation', deviceOrientation)
     // setTimeout(() => {
     //   // console.log( 'onLoad set camera position' )
@@ -123,18 +101,9 @@ function loadModel(url) {
     cube = gltf.scene
     cube.name = url
     scene.add(cube)
-
-    // console.log('cube', cube)
-
-    // cube.rotation.y = -1.6
-    // cube.rotation.z = -0.2
-    // cube.rotation.x = 0.3
-    //
     cube.position.y = -0.5
   })
 }
-
-
 
 
 function removeModel(url) {
@@ -161,26 +130,12 @@ export function init() {
   renderer.setSize( canvas.width, canvas.height )
 
   createLights()
-  // scene.add( new THREE.AxesHelper( 1000 ) );
 
   const element = document.getElementById('scene')
   element.appendChild(renderer.domElement)
 
   controls = new THREE.OrbitControls( camera, element );
   controls.update()
-
-  // window.addEventListener('deviceorientation', (e) => {
-  //   if(cube) {
-  //     console.log('beta', e.beta)
-  //     console.log('gamma', e.gamma)
-  //     console.log('alpha', e.alpha)
-  //     console.log(' ')
-  //
-  //     cube.rotation.x = e.beta  * (Math.PI / 200)
-  //     cube.rotation.y = e.gamma * (Math.PI / 200)
-  //     cube.rotation.z = e.alpha * (Math.PI / 200)
-  //   }
-  // })
   animate()
 }
 
@@ -193,5 +148,4 @@ export function uninit() {
   }
 
   cancelAnimationFrame(frameRequest)
-  // camera, scene, renderer, frameRequest, geometry, material, cube, controls, mesh
 }
