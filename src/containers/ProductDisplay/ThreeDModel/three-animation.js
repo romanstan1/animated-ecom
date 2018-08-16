@@ -93,7 +93,7 @@ function deviceOrientation(e) {
     // cube.rotation.z =  (e.alpha * (Math.PI / 200)) - alphaChange - 0.2
     cube.rotation.z =  -0.2
 
-    console.log('cube', cube.rotation.x, cube.rotation.y, cube.rotation.z )
+    // console.log('cube', cube.rotation.x, cube.rotation.y, cube.rotation.z )
 
 
   }
@@ -161,7 +161,7 @@ export function init() {
   renderer.setSize( canvas.width, canvas.height )
 
   createLights()
-  scene.add( new THREE.AxesHelper( 1000 ) );
+  // scene.add( new THREE.AxesHelper( 1000 ) );
 
   const element = document.getElementById('scene')
   element.appendChild(renderer.domElement)

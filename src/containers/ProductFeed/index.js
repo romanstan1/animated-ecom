@@ -58,7 +58,6 @@ class ProductFeedDrawer extends Component {
   }
 
   onTouchEnd = () => {
-    console.log('onTouchEnd')
     this.onChange()
   }
 
