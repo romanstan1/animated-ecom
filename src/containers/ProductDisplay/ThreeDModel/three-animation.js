@@ -101,7 +101,7 @@ function loadModel(url) {
     cube = gltf.scene
     cube.name = url
     scene.add(cube)
-    cube.position.y = -0.5
+    cube.position.y = -20
   })
 }
 
@@ -122,8 +122,8 @@ export function init() {
   const canvas = setCanvasSize()
 
   scene = new THREE.Scene()
-  camera = new THREE.PerspectiveCamera( 45, canvas.width / canvas.height, 0.25, 50 )
-	camera.position.set( 0, 0, 5 )
+  camera = new THREE.PerspectiveCamera( 45, canvas.width / canvas.height, 0.85, 1000 )
+	camera.position.set( 0, 0, 250 )
 
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setClearColor( 0xffffff, 1)

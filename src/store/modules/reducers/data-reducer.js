@@ -6,14 +6,32 @@ import {
 
 const productData = [
   {
-    sku: 25389906,
+    sku: 25390001,
+    brand: 'Specsavers',
+    title: 'Fraser',
+    description: 'Get down to business with these no-fuss Fraser frames, perfect for those who prefer a minimalist look. The slightly square shape and angular lines give a professional feel to these glasses. The dark gunmetal grey finish, pared-back construction and slender design lend a masculine air. The slim sides transition into black temple tips for comfortable all-day wear, so you can focus on closing that important deal or nailing your presentation. The elegant design will instill confidence among clients and colleagues alike, while seamlessly enhancing your chosen outfit for a sophisticated look.',
+    price: 25,
+    url: '25390001/SKU25390001.gltf',
+    image: 'assets/25390001.jpg'
+  },
+  {
+    sku: 25262087,
     brand: 'Specsavers',
     title: 'Conan',
     description: 'This on-trend rectangular frame has been enjoying a strong revival and these Conan glasses add a fresh twist to this design. This metal frame with its bold brow line design effectively frames the eyes, drawing attention and contrasting to the slimmer bottom half. A contemporary nod to retro style, this design will upgrade your eyewear collection with the flexi hinges providing a practical touch.',
     price: 89,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25262087/SKU25262087.gltf',
     image: 'assets/25389906.jpg'
   },
+  // {
+  //   sku: 25389906,
+  //   brand: 'Specsavers',
+  //   title: 'Conan',
+  //   description: 'This on-trend rectangular frame has been enjoying a strong revival and these Conan glasses add a fresh twist to this design. This metal frame with its bold brow line design effectively frames the eyes, drawing attention and contrasting to the slimmer bottom half. A contemporary nod to retro style, this design will upgrade your eyewear collection with the flexi hinges providing a practical touch.',
+  //   price: 89,
+  //   url: 'Duck/glTF/Duck.gltf',
+  //   image: 'assets/25389906.jpg'
+  // },
   {
     sku: 25390032,
     brand: 'Specsavers',
