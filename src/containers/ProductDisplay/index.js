@@ -4,15 +4,15 @@ import {addToBasket} from 'store/modules/actions/data-actions'
 import ThreeDModel from './ThreeDModel'
 import './style.css'
 
-const fadeIn = {
-  transform: 'translate3d(0,0,0)',
-  opacity: 1
-}
-
-const fadeOut = {
-  transform: 'translate3d(0, 20px, 0)',
-  opacity: 0
-}
+// const fadeIn = {
+//   transform: 'translate3d(0,0,0)',
+//   opacity: 1
+// }
+//
+// const fadeOut = {
+//   transform: 'translate3d(0, 20px, 0)',
+//   opacity: 0
+// }
 
 class ProductDisplay extends Component {
   state = {
@@ -23,7 +23,6 @@ class ProductDisplay extends Component {
     if(!!nextProps.card) this.setState(() => ({legacyCard: nextProps.card}))
     if(this.props.basket.length < nextProps.basket.length) this.updated()
   }
-
   updated = () => {
     this.setState(() => ({updated: true}))
     clearTimeout(this.timeout)
@@ -31,23 +30,19 @@ class ProductDisplay extends Component {
       this.setState(() => ({updated: false}))
     }, 1200)
   }
-
   componentWillUnmount() {
     clearTimeout(this.timeout)
   }
-
   handleClick = () => {
     this.props.dispatch(addToBasket(this.state.legacyCard))
     window.navigator.vibrate([200]);
   }
-
   render() {
     const {card} = this.props
     const {legacyCard, updated} = this.state
     return (
       <div
         className='product-display'
-        // style={!!card? fadeIn : fadeOut}
         >
         <ThreeDModel card={legacyCard} show={!!card}/>
         <div className='details'>

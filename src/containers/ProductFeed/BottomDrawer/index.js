@@ -25,10 +25,7 @@ class BottomDrawer extends Component {
     this.screenHeight = window.innerHeight
     || document.documentElement.clientHeight
     || document.body.clientHeight
-
     this.productFeedTop = ((this.screenHeight - 120) * 0.4) + 40
-
-    console.log('height', this.screenHeight, this.productFeedTop )
   }
   componentDidMount() {
     this.setBoundingRect()

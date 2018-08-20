@@ -6,17 +6,13 @@ var THREE = window.THREE
 
 let camera, scene, renderer, frameRequest, geometry, material, cube, controls, mesh
 
-const scale = d3.scaleLinear().domain([300, 1000]).range([2, 50])
-
-
-const val = scale(1010)
-console.log('val:', val)
+const scale = d3.scaleLinear().domain([250, 1000]).range([2, 50])
 
 function animate() {
   render()
   frameRequest = requestAnimationFrame(animate)
 
-  if(camera.position.z > 301) {
+  if(camera.position.z > 250) {
     camera.position.z -= scale(camera.position.z)
     camera.lookAt(0,0,0)
   }
@@ -81,16 +77,17 @@ let betaChange, gammaChange, alphaChange
 function deviceOrientation(e) {
   if(cube) {
     if(snapshot) {
-      betaChange = e.beta  * (Math.PI / 200)
-      gammaChange = e.gamma * (Math.PI / 200)
-      alphaChange = e.alpha * (Math.PI / 200)
+      betaChange = e.beta
+      gammaChange = e.gamma
+      // gammaChange = e.gamma * (Math.PI / 200)
+      // alphaChange = e.alpha * (Math.PI / 200)
       snapshot = false
     }
 
-    cube.rotation.x =  (e.beta  * (Math.PI / 400)) - betaChange  + 0.3
-    cube.rotation.y =  (e.gamma * (Math.PI / 200)) - gammaChange - 1.6
+    cube.rotation.x = ((e.beta - betaChange) * (Math.PI / 900))
+    cube.rotation.y = ((e.gamma - gammaChange) * (Math.PI / 400))
     // cube.rotation.z =  (e.alpha * (Math.PI / 200)) - alphaChange - 0.2
-    cube.rotation.z =  -0.2
+    // cube.rotation.z =  -0.2
   }
 }
 
@@ -101,7 +98,7 @@ function loadModel(url) {
     const manager = new THREE.LoadingManager()
     manager.onLoad = () => {
       window.addEventListener('deviceorientation', deviceOrientation)
-      camera.position.set( 0, 100, 500 )
+      camera.position.set( 0, 110, 500 )
       camera.lookAt(0,0,0)
     }
     const loader = new THREE.GLTFLoader(manager)
@@ -109,7 +106,7 @@ function loadModel(url) {
       cube = gltf.scene
       cube.name = url
       scene.add(cube)
-      cube.children[0].position.y = 0
+      cube.children[0].position.y = 20
       cube.children[0].position.z = 0
       cube.children[0].position.x = 0
     })
@@ -133,7 +130,7 @@ export function init() {
 
   scene = new THREE.Scene()
   camera = new THREE.PerspectiveCamera( 45, canvas.width / canvas.height, 0.85, 1000 )
-	camera.position.set( 0, 100, 500 )
+	camera.position.set( 0, 110, 500 )
 
   // var axesHelper = new THREE.AxesHelper( 700 );
   // scene.add( axesHelper );
