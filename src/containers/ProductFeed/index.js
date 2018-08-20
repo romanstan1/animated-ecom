@@ -25,9 +25,6 @@ class ProductFeedDrawer extends Component {
       draggable: true,
       multipleDrag: true,
       duration: 200
-      // onChange: (e) => {
-      //   this.onChange()
-      // }
     })
 
     setTimeout(()=> {

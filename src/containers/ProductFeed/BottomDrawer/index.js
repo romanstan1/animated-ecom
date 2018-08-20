@@ -26,7 +26,9 @@ class BottomDrawer extends Component {
     || document.documentElement.clientHeight
     || document.body.clientHeight
 
-    this.productFeedTop = (this.screenHeight / 2)
+    this.productFeedTop = ((this.screenHeight - 120) * 0.4) + 40
+
+    console.log('height', this.screenHeight, this.productFeedTop )
   }
   componentDidMount() {
     this.setBoundingRect()
@@ -48,7 +50,7 @@ class BottomDrawer extends Component {
   render() {
     const {down, children, y, yDelta, open, bottomDrawer } = this.props
     const { allow, openLegacy } = this.state
-    const offset = openLegacy? -280 : -40
+    const offset = openLegacy? -this.productFeedTop : -40
     return (
       <Fragment>
         <Spring

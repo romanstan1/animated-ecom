@@ -25,10 +25,14 @@ function getScreenDimensions() {
   return {width, height}
 }
 
+
+
+
 function setCanvasSize() {
   const screen = getScreenDimensions()
-  const width = screen.width
+  const width = screen.width > 510? 510 : screen.width
   const height = (screen.height - 120) * 0.6
+  console.log('setCanvasSize', screen.height )
   return {width, height}
 }
 
@@ -119,7 +123,8 @@ export function update(url, show) {
 }
 
 export function init() {
-  const canvas = setCanvasSize()
+  let canvas = setCanvasSize()
+
 
   scene = new THREE.Scene()
   camera = new THREE.PerspectiveCamera( 45, canvas.width / canvas.height, 0.85, 1000 )
@@ -128,6 +133,13 @@ export function init() {
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setClearColor( 0xffffff, 1)
   renderer.setSize( canvas.width, canvas.height )
+
+  window.addEventListener("resize", () => {
+    canvas = setCanvasSize()
+    camera.aspect = canvas.width / canvas.height
+    camera.updateProjectionMatrix()
+    renderer.setSize( canvas.width, canvas.height )
+  }, true);
 
   createLights()
 
