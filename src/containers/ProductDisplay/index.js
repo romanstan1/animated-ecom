@@ -40,6 +40,7 @@ class ProductDisplay extends Component {
     this.props.dispatch(addToBasket(this.state.legacyCard))
     window.navigator.vibrate([200]);
   }
+  
   render() {
     const {card} = this.props
     const {legacyCard, updated} = this.state
@@ -56,7 +57,6 @@ class ProductDisplay extends Component {
           </p>
           <span className='fade-overlay'/>
           <p className='price'>{legacyCard? "£" + legacyCard.price : null}</p>
-
           <div className={updated? "button updated" : "button"} onClick={this.handleClick}>
             {updated? "Successfully added!" : "Add to basket"}
           </div>

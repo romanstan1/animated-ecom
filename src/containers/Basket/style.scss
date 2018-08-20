@@ -1,7 +1,7 @@
 @import "src/global-styles/_variables";
 
 div.basket {
-  height: calc(100% - 140px);
+  height: calc(100% - 170px);
   overflow-y: scroll;
   padding: 0 0px;
   margin: 0px 0px 0px 0;
@@ -76,7 +76,7 @@ div.checkout-tab {
   width: 100%;
   left: 0;
   height: 100px;
-  margin-bottom: 80px;
+  margin-bottom: 110px;
   div.total {
     display: flex;
     justify-content: space-between;
@@ -105,12 +105,12 @@ div.checkout-tab {
     transition: 0.2s ease;
     position: absolute;
     left: 50%;
-    transform: translate(-50%, -35%);
+    transform: translate(-50%, 25%);
     bottom: 0px;
     display: inline-block;
     background: $green;
-    padding: 10px 20px;
-    min-width: 220px;
+    padding: 15px 20px;
+    min-width: 290px;
     border-radius: 10px;
     color: white;
     text-align: center;
