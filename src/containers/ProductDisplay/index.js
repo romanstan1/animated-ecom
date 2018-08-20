@@ -40,14 +40,15 @@ class ProductDisplay extends Component {
     this.props.dispatch(addToBasket(this.state.legacyCard))
     window.navigator.vibrate([200]);
   }
-  
+
   render() {
     const {card} = this.props
     const {legacyCard, updated} = this.state
     return (
       <div
         className='product-display'
-        style={!!card? fadeIn : fadeOut}>
+        // style={!!card? fadeIn : fadeOut}
+        >
         <ThreeDModel card={legacyCard} show={!!card}/>
         <div className='details'>
           <h3 className='brand'>{legacyCard? legacyCard.brand: null}</h3>

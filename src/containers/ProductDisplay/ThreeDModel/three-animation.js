@@ -1,13 +1,25 @@
 import './GLTFLoader'
 import './OrbitControls'
+import * as d3 from 'd3-scale'
 
 var THREE = window.THREE
 
 let camera, scene, renderer, frameRequest, geometry, material, cube, controls, mesh
 
+const scale = d3.scaleLinear().domain([300, 1000]).range([2, 50])
+
+
+const val = scale(1010)
+console.log('val:', val)
+
 function animate() {
   render()
   frameRequest = requestAnimationFrame(animate)
+
+  if(camera.position.z > 301) {
+    camera.position.z -= scale(camera.position.z)
+    camera.lookAt(0,0,0)
+  }
 }
 
 function render() {
@@ -25,14 +37,10 @@ function getScreenDimensions() {
   return {width, height}
 }
 
-
-
-
 function setCanvasSize() {
   const screen = getScreenDimensions()
   const width = screen.width > 510? 510 : screen.width
   const height = (screen.height - 120) * 0.6
-  console.log('setCanvasSize', screen.height )
   return {width, height}
 }
 
@@ -72,7 +80,6 @@ let betaChange, gammaChange, alphaChange
 
 function deviceOrientation(e) {
   if(cube) {
-
     if(snapshot) {
       betaChange = e.beta  * (Math.PI / 200)
       gammaChange = e.gamma * (Math.PI / 200)
@@ -88,32 +95,31 @@ function deviceOrientation(e) {
 }
 
 function loadModel(url) {
-  snapshot = true
-  betaChange, gammaChange, alphaChange
-  const manager = new THREE.LoadingManager()
-  manager.onLoad = () => {
-    window.addEventListener('deviceorientation', deviceOrientation)
-    // setTimeout(() => {
-    //   // console.log( 'onLoad set camera position' )
-    //   // camera.position.set( 0, 0, 5 )
-    // },200)
-  }
-
-  const loader = new THREE.GLTFLoader(manager)
-
-  loader.load(url, ( gltf ) => {
-    cube = gltf.scene
-    cube.name = url
-    scene.add(cube)
-    cube.position.y = -20
-  })
+  setTimeout(() => {
+    snapshot = true
+    betaChange, gammaChange, alphaChange
+    const manager = new THREE.LoadingManager()
+    manager.onLoad = () => {
+      window.addEventListener('deviceorientation', deviceOrientation)
+      camera.position.set( 0, 100, 500 )
+      camera.lookAt(0,0,0)
+    }
+    const loader = new THREE.GLTFLoader(manager)
+    loader.load(url, ( gltf ) => {
+      cube = gltf.scene
+      cube.name = url
+      scene.add(cube)
+      cube.children[0].position.y = 0
+      cube.children[0].position.z = 0
+      cube.children[0].position.x = 0
+    })
+  },200)
 }
 
 
 function removeModel(url) {
   const selectedObject = scene.getObjectByName(url)
   scene.remove( selectedObject )
-
   window.removeEventListener('deviceorientation', deviceOrientation)
 }
 
@@ -125,10 +131,12 @@ export function update(url, show) {
 export function init() {
   let canvas = setCanvasSize()
 
-
   scene = new THREE.Scene()
   camera = new THREE.PerspectiveCamera( 45, canvas.width / canvas.height, 0.85, 1000 )
-	camera.position.set( 0, 0, 250 )
+	camera.position.set( 0, 100, 500 )
+
+  // var axesHelper = new THREE.AxesHelper( 700 );
+  // scene.add( axesHelper );
 
   renderer = new THREE.WebGLRenderer({ antialias: true })
   renderer.setClearColor( 0xffffff, 1)
@@ -153,11 +161,5 @@ export function init() {
 
 export function uninit() {
   const element = document.getElementById('scene')
-  console.log('uninit', scene, element)
-
-  if(element.children.length > 0) {
-    // element.removeChild()
-  }
-
   cancelAnimationFrame(frameRequest)
 }
