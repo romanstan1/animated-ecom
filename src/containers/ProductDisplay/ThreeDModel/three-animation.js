@@ -116,6 +116,12 @@ function loadModel(url) {
       window.addEventListener('deviceorientation', deviceOrientation)
       cube = gltf.scene
       cube.name = url
+      scene.children.forEach((child) => {
+        if(child.type === 'Scene') {
+          const selectedObject = scene.getObjectByName(child.name)
+          scene.remove( selectedObject )
+        }
+      })
       scene.add(cube)
       cube.castShadow = true;
       cube.receiveShadow = true;
