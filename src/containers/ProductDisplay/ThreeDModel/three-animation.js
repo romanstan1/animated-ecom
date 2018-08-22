@@ -76,8 +76,6 @@ function createLights() {
   spotLight.shadow.camera.near = 0.1;
   spotLight.shadow.camera.far = 2000;
   spotLight.shadow.camera.fov = 30;
-  // spotLight.shadow.radius = 2;
-  console.log('spotLight', spotLight)
   spotLight.decay = 0;
 
   scene.add( spotLight );
@@ -97,8 +95,8 @@ function deviceOrientation(e) {
       gammaChange = e.gamma
       snapshot = false
     }
-    cube.rotation.x = ((e.beta - betaChange) * (Math.PI / 900))
-    cube.rotation.y = ((e.gamma - gammaChange) * (Math.PI / 400))
+    cube.rotation.x = ((e.beta - betaChange) * (Math.PI / 800))
+    cube.rotation.y = ((e.gamma - gammaChange) * (Math.PI / 300))
   }
 }
 
@@ -114,8 +112,8 @@ function loadModel(url) {
       // camera.lookAt(0,0,0)
     }
     const loader = new THREE.GLTFLoader(manager)
-
     loader.load(url, ( gltf ) => {
+      window.addEventListener('deviceorientation', deviceOrientation)
       cube = gltf.scene
       cube.name = url
       scene.add(cube)
