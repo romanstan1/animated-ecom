@@ -4,24 +4,20 @@ import Home from 'pages/Home'
 
 export default class App extends Component {
   commponentDidMount() {
-    // console.log('screen', windowscreen)
-    // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-    // window.screen.lockOrientation("portrait-primary")
+    // // console.log('screen', windowscreen)
+    // // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
+    // // window.screen.lockOrientation("portrait-primary")
+    //
+    // const lockedAllowed = window.screen.lockOrientation("portrait-primary");
+    // console.log('lockedAllowed', lockedAllowed)
+    // if (window.screen.lockOrientationUniversal("portrait-primary")) {
+    //   console.log('locked')
+    // } else {
+    //   console.log('lock failed')
+    // }
 
-    const lockedAllowed = window.screen.lockOrientation("portrait-primary");
-
-    // screen.lockOrientationUniversal = screen.lockOrientation || screen.mozLockOrientation || screen.msLockOrientation;
-
-    console.log('locked')
-
-    console.log('lockedAllowed', lockedAllowed)
-    if (window.screen.lockOrientationUniversal("portrait-primary")) {
-      // orientation was locked
-      console.log('locked')
-    } else {
-
-      console.log('lock failed')
-      // orientation lock failed
+    document.ontouchmove = function (e) {
+      e.preventDefault();
     }
 
     if ('serviceWorker' in navigator) {

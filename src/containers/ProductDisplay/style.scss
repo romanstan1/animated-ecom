@@ -36,14 +36,6 @@ div.product-display {
       overflow-y: scroll;
       position: relative;
     }
-    span.fade-overlay{
-      position: absolute;
-      width: 100%;
-      top: 110px;
-      left: 0;
-      background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(255, 255, 255, 1)));
-      height: 30px;
-    }
     p.price {
       margin: 0;
       position: absolute;

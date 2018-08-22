@@ -51,7 +51,6 @@ class ProductDisplay extends Component {
           <p className='description'>
             {legacyCard? legacyCard.description: null}
           </p>
-          <span className='fade-overlay'/>
           <p className='price'>{legacyCard? "£" + legacyCard.price : null}</p>
           <div className={updated? "button updated" : "button"} onClick={this.handleClick}>
             {updated? "Successfully added!" : "Add to basket"}
