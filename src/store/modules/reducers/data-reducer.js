@@ -7,7 +7,7 @@ import {
 const productData = [
   {
     sku: 25390001,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Fraser',
     description: 'Get down to business with these no-fuss Fraser frames, perfect for those who prefer a minimalist look.',
     price: 25,
@@ -16,7 +16,7 @@ const productData = [
   },
   {
     sku: 25262087,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Conan',
     description: 'This on-trend rectangular frame has been enjoying a strong revival.',
     price: 89,
@@ -25,7 +25,7 @@ const productData = [
   },
   {
     sku: 25390032,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Denzil',
     description: 'Inject some vintage cool into your eyewear collection with these pilot-inspired glasses.',
     price: 25,
@@ -34,7 +34,7 @@ const productData = [
   },
   {
     sku: 25390025,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Aubrey',
     description: 'Channel your inner pilot with these statement glasses in a classic shape.',
     price: 25,
@@ -43,7 +43,7 @@ const productData = [
   },
   {
     sku: 25390186,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Abraham',
     description: 'Work a California cool look with these glasses – a style that easily crosses from the city to the beach.',
     price: 89,
@@ -52,7 +52,7 @@ const productData = [
   },
   {
     sku: 25241235,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Hester',
     description: "Dazzle with charm in these feminine frames.",
     price: 89,
@@ -61,7 +61,7 @@ const productData = [
   },
   {
     sku: 25381641,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Byron',
     description: "Bag some all-American style with these preppy Byron frames.",
     price: 69,
@@ -70,7 +70,7 @@ const productData = [
   },
   {
     sku: 25390148,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Emile',
     description: "Simple black glasses with a futuristic edge.",
     price: 89,
@@ -79,7 +79,7 @@ const productData = [
   },
   {
     sku: 25390070,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Digby',
     description: "Make an impression with these futuristic frames.",
     price: 45,
@@ -88,7 +88,7 @@ const productData = [
   },
   {
     sku: 25381658,
-    brand: 'Specsavers',
+    brand: "Spectacle's Direct",
     title: 'Bronwen',
     description: "Bring a burst of colour to the boardroom and show them who's boss with these distinctive burgundy Bronwen glasses.",
     price: 69,
