@@ -21,24 +21,15 @@ const productData = [
     description: 'This on-trend rectangular frame has been enjoying a strong revival.',
     price: 89,
     url: '25262087/SKU25262087.gltf',
-    image: 'assets/25389906.jpg'
+    image: 'assets/25262087.jpg'
   },
-  // {
-  //   sku: 25389906,
-  //   brand: 'Specsavers',
-  //   title: 'Conan',
-  //   description: 'This on-trend rectangular frame has been enjoying a strong revival and these Conan glasses add a fresh twist to this design. This metal frame with its bold brow line design effectively frames the eyes, drawing attention and contrasting to the slimmer bottom half. A contemporary nod to retro style, this design will upgrade your eyewear collection with the flexi hinges providing a practical touch.',
-  //   price: 89,
-  //   url: 'Duck/glTF/Duck.gltf',
-  //   image: 'assets/25389906.jpg'
-  // },
   {
     sku: 25390032,
     brand: 'Specsavers',
     title: 'Denzil',
     description: 'Inject some vintage cool into your eyewear collection with these pilot-inspired glasses.',
     price: 25,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25390032.jpg'
   },
   {
@@ -47,7 +38,7 @@ const productData = [
     title: 'Aubrey',
     description: 'Channel your inner pilot with these statement glasses in a classic shape.',
     price: 25,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25390025.jpg'
   },
   {
@@ -56,7 +47,7 @@ const productData = [
     title: 'Abraham',
     description: 'Work a California cool look with these glasses – a style that easily crosses from the city to the beach.',
     price: 89,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25390186.jpg'
   },
   {
@@ -65,7 +56,7 @@ const productData = [
     title: 'Hester',
     description: "Dazzle with charm in these feminine frames.",
     price: 89,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25241235.jpg'
   },
   {
@@ -74,7 +65,7 @@ const productData = [
     title: 'Byron',
     description: "Bag some all-American style with these preppy Byron frames.",
     price: 69,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25381641.jpg'
   },
   {
@@ -83,7 +74,7 @@ const productData = [
     title: 'Emile',
     description: "Simple black glasses with a futuristic edge.",
     price: 89,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25390148.jpg'
   },
   {
@@ -92,7 +83,7 @@ const productData = [
     title: 'Digby',
     description: "Make an impression with these futuristic frames.",
     price: 45,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25390070.jpg'
   },
   {
@@ -101,7 +92,7 @@ const productData = [
     title: 'Bronwen',
     description: "Bring a burst of colour to the boardroom and show them who's boss with these distinctive burgundy Bronwen glasses.",
     price: 69,
-    url: 'Duck/glTF/Duck.gltf',
+    url: '25390001/SKU25390001.gltf',
     image: 'assets/25381658.jpg'
   }
 ]
