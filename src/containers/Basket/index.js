@@ -19,7 +19,7 @@ const BasketItem = ({item, styles}) =>
     </div>
   </div>
 
-const CheckoutTab = ({total, handlePayment}) =>
+const CheckoutTab = ({total, handlePayment, applePay}) =>
   <div className="checkout-tab">
     <div className='total'>
       <div>
@@ -28,9 +28,13 @@ const CheckoutTab = ({total, handlePayment}) =>
       </div>
       <div>£{total}</div>
     </div>
-    <div className='button' onClick={handlePayment}>
-      Checkout
-    </div>
+    {
+      applePay?
+      <div className='button'
+        style={{width: 150, WebkitAppearance: "-apple-pay-button", opacity: total? 1 : 0.1 }}
+        onClick={total? handlePayment : null }/> :
+      <div className='button' onClick={handlePayment}> Checkout </div>
+    }
   </div>
 
 
@@ -51,10 +55,19 @@ class Basket extends Component {
   }
 
   handlePayment = () => {
-    console.log('handlePayment!')
+
     const paymentMethods = [
-      {supportedMethods: ['basic-card']}
-    ]
+    {
+      supportedMethods: ["https://apple.com/apple-pay" , 'basic-card'],
+      data: {
+        version: 3,
+        merchantIdentifier: "merchant.com.example",
+        merchantCapabilities: ["supports3DS", "supportsCredit", "supportsDebit"],
+        supportedNetworks: ["amex", "discover", "masterCard", "visa"],
+        countryCode: "US",
+      }
+    }
+  ]
 
     const details = {
       total: {
@@ -102,8 +115,7 @@ class Basket extends Component {
 
       request.addEventListener('shippingoptionchange', (event) => {
         const req = event.target;
-        if(req.shippingOption === 'economy') {
-        }
+        if(req.shippingOption === 'economy') {}
       })
     } else {
       console.log('doesnt support payment request api')
@@ -114,6 +126,7 @@ class Basket extends Component {
   render() {
     const {basket} = this.props
     const {total} = this.state
+    const applePay = !!window.ApplePaySession
     return (
       <Fragment>
         <TopDrawer>
@@ -147,7 +160,7 @@ class Basket extends Component {
               }
             </Transition>
           </div>
-          <CheckoutTab total={total} handlePayment={this.handlePayment}/>
+          <CheckoutTab applePay={applePay} total={total} handlePayment={this.handlePayment}/>
         </TopDrawer>
       </Fragment>
     )
