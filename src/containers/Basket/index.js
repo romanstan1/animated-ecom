@@ -58,7 +58,7 @@ class Basket extends Component {
 
     const paymentMethods = [
     {
-      supportedMethods: ["https://apple.com/apple-pay" , 'basic-card'],
+      supportedMethods: !!window.ApplePaySession? ["https://apple.com/apple-pay"] : ['basic-card'],
       data: {
         version: 3,
         merchantIdentifier: "merchant.com.example",

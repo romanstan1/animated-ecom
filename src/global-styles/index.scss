@@ -11,16 +11,15 @@ a {
 }
 
 html {
-  background: $darkestgrey;
   height: 100%;
   overflow: hidden;
   overscroll-behavior: none;
   position: fixed;
-
 }
 
 body {
   background: white;
+  background: $darkestgrey;
   color: $black;
   margin: 0;
   padding: 0;
@@ -34,7 +33,6 @@ body {
   max-width: 510px;
   height: 100%;
   text-align: center;
-  overflow: hidden;
   overscroll-behavior: none;
   position: fixed;
   div#root {
@@ -52,11 +50,10 @@ div.message {
   height: 400px;
   right: 100px;
   top: 50%;
-  z-index: -1;
   border-radius: 5px;
   opacity: 0.9;
   transform: translate(0%, -50%);
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
   text-align: left;
