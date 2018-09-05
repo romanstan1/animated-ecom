@@ -51,6 +51,7 @@ class Basket extends Component {
   }
 
   handlePayment = () => {
+    console.log('handlePayment!')
     const paymentMethods = [
       {supportedMethods: ['basic-card']}
     ]
@@ -94,17 +95,15 @@ class Basket extends Component {
 
     const paymentRequest = new window.PaymentRequest(paymentMethods, details, options)
 
-    paymentRequest.show().then(uiResult => {}).catch(error => {});
+    paymentRequest.show()
+      .then(uiResult => {console.log('ui result:', uiResult)})
+      .catch(error => {console.log('error with payment request api', error)})
 
     paymentRequest.addEventListener('shippingoptionchange', (event) => {
       const req = event.target;
-      console.log('Shipping option', req);
       if(req.shippingOption === 'economy') {
-        // this.setState((prevState, props) => ({total: prevState.total + 3.95}))
-      } else {
-        // this.setState((prevState, props) => ({total: prevState.total + 7.95}))
       }
-    });
+    })
   }
 
   render() {
