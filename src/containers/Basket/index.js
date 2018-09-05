@@ -93,17 +93,22 @@ class Basket extends Component {
       requestShipping: true
     }
 
-    const paymentRequest = new window.PaymentRequest(paymentMethods, details, options)
+    let request
+    if (window.PaymentRequest) {
+      request = new window.PaymentRequest(paymentMethods, details, options)
+      request.show()
+        .then(uiResult => {console.log('ui result:', uiResult)})
+        .catch(error => {console.log('error with payment request api', error)})
 
-    paymentRequest.show()
-      .then(uiResult => {console.log('ui result:', uiResult)})
-      .catch(error => {console.log('error with payment request api', error)})
+      request.addEventListener('shippingoptionchange', (event) => {
+        const req = event.target;
+        if(req.shippingOption === 'economy') {
+        }
+      })
+    } else {
+      console.log('doesnt support payment request api')
+    }
 
-    paymentRequest.addEventListener('shippingoptionchange', (event) => {
-      const req = event.target;
-      if(req.shippingOption === 'economy') {
-      }
-    })
   }
 
   render() {
