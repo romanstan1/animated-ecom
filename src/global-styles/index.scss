@@ -35,10 +35,11 @@ body {
   text-align: center;
   overscroll-behavior: none;
   position: fixed;
-  overflow: hidden;
   div#root {
     height: 100%;
     position: relative;
+    position: fixed;
+    max-width: 510px;
     overflow: hidden;
     background: white;
   }
